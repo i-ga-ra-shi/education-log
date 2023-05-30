@@ -1,0 +1,25 @@
+.card-effect {
+    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    background-color: #fff;
+    padding: 25px;
+    transition: all 0.4s ease;
+}
+
+.card-effect:hover {
+    box-shadow: none;
+    transform: translateY(5px);
+    border: #1F6EFD 6px solid;
+    border-radius: 6px;
+}
+
+.iconbox {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 32px;
+    background-color: #1F6EFD;
+    border-radius: 100px;
+}

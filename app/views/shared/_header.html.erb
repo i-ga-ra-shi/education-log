@@ -24,10 +24,10 @@
           </li>
         <% else %>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">ログイン</a>
+            <%= link_to("ログイン", new_user_session_path, class: "nav-link") %>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">新規登録</a>
+            <%= link_to("新規登録", new_user_registration_path, class: "nav-link") %>
           </li>
         <% end %>
       </ul>

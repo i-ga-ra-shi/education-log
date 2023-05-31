@@ -1,7 +1,7 @@
 <div class="container pt-5">
   <div class="row justify-content-center">
     <div class="col-8">
-      <div class="p-2 text-black-50 fs-1 text-center fw-bold">新規登録ページ</div>
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold">新規登録</div>
     </div>  
   </div>
 </div>
@@ -17,7 +17,7 @@
   </div>
 
   <div class="col-md-8">
-    <%= f.label :email, "メースアドレス" %><br />
+    <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
@@ -39,7 +39,7 @@
   </div>
 <% end %>
 
-<div class="fs-3 text-center my-3">o r</div>
+<div class="fs-3 text-center my-5">o r</div>
 
 <div class="text-center">
 <%= link_to("ログイン", new_user_session_path, class: "fs-4 text-black-50") %>

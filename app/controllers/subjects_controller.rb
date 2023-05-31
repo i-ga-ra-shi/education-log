@@ -1,8 +1,13 @@
 class SubjectsController < ApplicationController
-  def index
-    @subjects = Subject.all
-  end
+    def index
 
-  def new
-  end
+    end
+
+    def new
+
+    end
+
+    def create
+        
+    end
 end

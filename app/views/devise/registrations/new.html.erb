@@ -13,12 +13,12 @@
 
   <div class="col-md-8">
     <%= f.label :school, "学校名" %><br />
-    <%= f.text_field :school, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.text_field :school, autofocus: true, class: "form-control" %>
   </div>
 
   <div class="col-md-8">
     <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control" %>
   </div>
 
   <div class="col-md-8">
@@ -26,12 +26,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
 
   <div class="col-md-8">
     <%= f.label :password_confirmation, "パスワード再入力" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
 
   <div class="col-md-5 d-grid">

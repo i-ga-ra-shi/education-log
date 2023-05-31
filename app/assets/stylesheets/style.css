@@ -1,17 +1,16 @@
 /* カード */
 
 .card-effect {
-    box-shadow: 0 8px 22px rgba(0,0,0,0.2);
-    background-color: #fff;
+    box-shadow: none;
     padding: 25px;
-    transition: all 0.4s ease;
+    border: gray 2px solid;
+    border-radius: 6px;
+    background-color: aliceblue;
 }
 
 .card-effect:hover {
-    box-shadow: none;
-    transform: translateY(5px);
-    border: #1F6EFD 6px solid;
-    border-radius: 6px;
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+    transition: all 0.4s ease;
 }
 
 .iconbox {

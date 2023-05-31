@@ -5,11 +5,8 @@
         <% @subjects.each do |subject| %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
-                        <div class="iconbox">
-                            </i><i class="bi bi-house-door-fill"></i>
-                        </div>
                         <p><%= subject.subject %></p>
-                        <p><%= subject.title %></p>
+                        <p>投稿者：<%= subject.title %></p>
                         <p><%= subject.name %></p>
                         <p><%= subject.content %></p>
                     </div>
@@ -17,7 +14,4 @@
         <% end %>
     </div>
 </div>
-
-<h4><%= link_to("新規投稿", new_subject_path) %></h4>
-
 

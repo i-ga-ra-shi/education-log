@@ -1,3 +1,11 @@
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold">新規投稿</div>
+    </div>  
+  </div>
+</div>
+
 <%= form_with(model: @subject, class: "row g-3 mx-auto justify-content-center", local: true) do |f| %>
   <%= render "shared/error_messages", model: @subject %>
 

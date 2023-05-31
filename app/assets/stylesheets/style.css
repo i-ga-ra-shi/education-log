@@ -1,3 +1,5 @@
+/* カード */
+
 .card-effect {
     box-shadow: 0 8px 22px rgba(0,0,0,0.2);
     background-color: #fff;
@@ -22,4 +24,15 @@
     font-size: 32px;
     background-color: #1F6EFD;
     border-radius: 100px;
+}
+
+/* contact section */
+form input.form-control {
+    height: 56px;
+}
+
+form .form-control {
+    border: transparent;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.04);
 }

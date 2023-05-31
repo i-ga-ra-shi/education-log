@@ -36,3 +36,17 @@ form .form-control {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0.04);
 }
+
+
+/* 新規登録ページ */
+.sign-up-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1F6EFD;
+    font-size: 45px;
+    background-color: white;
+    border-radius: 100px;
+}

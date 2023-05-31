@@ -1,1 +1,21 @@
-<h1>あいうえお</h1>
+<%# <%= render("shared/header") %>
+
+<div class="container mt-5">
+    <div class="row g-4">
+        <% @subjects.each do |subject| %>
+                <div class="col-lg-4 col-md-6" >
+                    <div class="service card-effect">
+                        <div class="iconbox">
+                            </i><i class="bi bi-house-door-fill"></i>
+                        </div>
+                        <h5><%= subject.name %></h5>
+                        <p><%= subject.text %></p>
+                    </div>
+                </div>
+        <% end %>
+    </div>
+</div>
+
+<h4><%= link_to("新規投稿", new_subject_path) %></h4>
+
+

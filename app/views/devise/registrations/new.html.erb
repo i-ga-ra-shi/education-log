@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold">新規登録ページ</div>
+    </div>  
+  </div>
+</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
+
+<%= form_with(model: resource, as: resource_name, url: registration_path(resource_name), class: "row g-3 mx-auto justify-content-center", local: true) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="col-md-8">
+    <%= f.label :school, "学校名" %><br />
+    <%= f.text_field :school, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="col-md-8">
+    <%= f.label :email, "メースアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  </div>
+
+  <div class="col-md-8">
+    <%= f.label :password, "パスワード" %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="col-md-8">
+    <%= f.label :password_confirmation, "パスワード再入力" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="col-md-5 d-grid">
+    <%= f.submit "登録", class: "btn btn-primary btn-lg" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<div class="fs-3 text-center my-3">o r</div>
+
+<div class="text-center">
+<%= link_to("ログイン", new_user_session_path, class: "fs-4 text-black-50") %>
+</div>

@@ -3,7 +3,6 @@
 <div class="container mt-5">
     <div class="row g-4">
         <% @subjects.each do |subject| %>
-            <% file_path = subject.file.file.file%>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
                         <%= image_tag("#{subject_images[subject.subject_id]}") %>
@@ -11,7 +10,10 @@
                         <p>タイトル：<%= subject.title %></p>
                         <p>投稿者：<%= subject.name %></p>
                         <p><%= subject.content %></p>
-                        <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
+                        <% if subject.file.file %>
+                            <% file_path = subject.file.file.file %>
+                            <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
+                        <% end %>
                     </div>
                 </div>
         <% end %>

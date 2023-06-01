@@ -12,6 +12,7 @@ class SubjectsController < ApplicationController
 
     def create
         @subject = Subject.new(subject_params)
+        # binding.pry
         if @subject.save
             redirect_to(root_path)
         else

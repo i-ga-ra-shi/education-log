@@ -12,7 +12,6 @@
                         <p>投稿者：<%= subject.name %></p>
                         <p><%= subject.content %></p>
                         <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
-                        <%# <%= image_tag(subject.file, class: 'rounded-circle mr15', width: '40', height: '40') %>
                     </div>
                 </div>
         <% end %>

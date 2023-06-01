@@ -6,6 +6,11 @@
   </div>
 </div>
 
+<% if !(flash[:notice]) %>
+  <p class="text-center"><%= flash[:notice] %></p>
+  <p class="text-center"><%= flash[:alert] %></p>
+<% end %>
+
 <%= form_with(model: resource, as: resource_name, url: session_path(resource_name), class: "row g-3 mx-auto justify-content-center", local: true) do |f| %>
   
   <div class="col-md-8">

@@ -11,7 +11,7 @@
 
   <div class="col-md-8">
     <%= f.label :subject, "教科" %><br />
-    <%= f.text_field :subject, autofocus: true, class: "form-control" %>
+    <%= f.collection_select(:subject_id, ChooseSubject.all, :id, :name, {}, {class:"form-select"}) %>
   </div>
 
   <div class="col-md-8">

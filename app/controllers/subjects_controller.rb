@@ -3,7 +3,7 @@ class SubjectsController < ApplicationController
 
 
     def index
-        @subjects = Subject.all
+        @subjects = Subject.includes(:user)
     end
 
     def new
@@ -25,7 +25,7 @@ class SubjectsController < ApplicationController
 
     private
     def subject_params
-        params.require(:subject).permit(:subject_id, :title, :name, :content).merge(user_id: current_user.id)
+        params.require(:subject).permit(:subject_id, :title, :name, :content, :file).merge(user_id: current_user.id)
     end
 
     def move_to_index

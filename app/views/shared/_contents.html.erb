@@ -1,11 +1,23 @@
+<div class="col-9 mx-auto d-flex justify-content-evenly">
+    <button type="button" class="btn btn-lg btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-lg btn-outline-secondary">Secondary</button>
+    <button type="button" class="btn btn-lg btn-outline-success">Success</button>
+    <button type="button" class="btn btn-lg btn-outline-danger">Danger</button>
+    <button type="button" class="btn btn-lg btn-outline-warning">Warning</button>
+    <button type="button" class="btn btn-lg btn-outline-info">Info</button>
+    <button type="button" class="btn btn-lg btn-outline-dark">Dark</button>
+</div>
+
 <div class="container mt-5">
     <div class="row g-4">
         <% @subjects.each do |subject| %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
-                        <%# <%= image_tag("#{subject_images[subject.subject_id]}") %>
                         <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
-                        <p>タイトル：<%= subject.title %></p>
+                        <p>科目：<%= subject.sub_subject %></p>
+                        <p>単元・タイトル：<%= subject.title %></p>
+                        <p>授業実施月：<%= subject.month.name %></p>
+                        <p>学年：<%= subject.student.name %></p>
                         <p>投稿者：<%= subject.name %></p>
                         <p>作成日時：<%= l subject.created_at %></p>
                         <p><%= subject.content %></p>

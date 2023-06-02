@@ -1,26 +1,26 @@
 class Subject < ApplicationRecord
     extend ActiveHash::Associations::ActiveRecordExtensions
     mount_uploader :file, AvatarUploader
-    belongs_to :choose_subject
     belongs_to :user
+    belongs_to :choose_subject
+    belongs_to :month
+    belongs_to :student
 
-    validates :subject_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :subject_id, :month_id, :student_id, numericality: { other_than: 1, message: "can't be blank" }
 
     scope :latest, -> {order(created_at: :desc)}
     scope :old, -> {order(created_at: :asc)}
     scope :subject_id, -> {order(subject_id: :asc)}
+    scope :month_id, -> {order(month_id: :asc)}
+    scope :student_id, -> {order(student_id: :asc)}
 
     def self.search(keyword)
         if keyword.present?
-            subjects = ["国語","社会","数学","理科","英語","その他の教科","特別活動"]
-            if subjects.include?(keyword)
-                index = subjects.index(keyword)
-                Subject.where('title LIKE ? OR name LIKE ? OR content LIKE ? OR subject_id = ?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "#{index+2}")
-            else
-                Subject.where('title LIKE ? OR name LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
-            end
+            Subject.where('sub_subject LIKE ? OR title LIKE ? OR name LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")
         else
-            Subject.all
+            Subject.includes(:user)
         end
     end
 end
+
+

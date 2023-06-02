@@ -1,3 +1,9 @@
+<div class="list-group list-group-horizontal col-9 mx-auto mt-5 p-3">
+    <%= link_to('新しい順', subjects_path(latest: "true"), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('古い順', subjects_path(old: "true"), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('教科順', subjects_path(subject_id: "true"), class: "list-group-item list-group-item-action text-center") %>
+</div>
+
 <%= render("shared/contents") %>
 
 

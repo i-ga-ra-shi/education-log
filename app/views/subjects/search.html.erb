@@ -1,1 +1,7 @@
+<div class="list-group list-group-horizontal col-9 mx-auto mt-5 p-3">
+    <%= link_to('新しい順', search_subjects_path(latest: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('古い順', search_subjects_path(old: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('教科順', search_subjects_path(subject_id: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
+</div>
+
 <%= render("shared/contents") %>

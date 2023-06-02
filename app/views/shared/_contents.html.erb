@@ -1,7 +1,3 @@
-
-<%= link_to '新しい順', subjects_path(latest: "true") %>
-<%= link_to '古い順', subjects_path(old: "true") %>
-
 <div class="container mt-5">
     <div class="row g-4">
         <% @subjects.each do |subject| %>

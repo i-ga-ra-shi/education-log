@@ -3,14 +3,12 @@ class SubjectsController < ApplicationController
 
 
     def index
-        # @subjects = Subject.includes(:user)
-
         if params[:latest]
             @subjects = Subject.latest
         elsif params[:old]
             @subjects = Subject.old
-        # elsif params[:star_count]
-        #     @subjects = Subject.star_count
+        elsif params[:subject_id]
+            @subjects = Subject.subject_id
         else
             @subjects = Subject.includes(:user)
         end
@@ -30,7 +28,16 @@ class SubjectsController < ApplicationController
     end
 
     def search
-        @subjects = Subject.search(params[:keyword])
+        keyword_subjects = Subject.search(params[:keyword])
+        if params[:latest]
+            @subjects = keyword_subjects.latest
+        elsif params[:old]
+            @subjects = keyword_subjects.old
+        elsif params[:subject_id]
+            @subjects = keyword_subjects.subject_id
+        else
+            @subjects = keyword_subjects.includes(:user)
+        end
     end
 
     private

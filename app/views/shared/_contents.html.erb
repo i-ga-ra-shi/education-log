@@ -1,4 +1,6 @@
-<%# <% subject_images = ["", "", "japanese.jpeg", "society.jpeg", "math.jpeg", "sciense.jpeg", "english.jpeg", "others.jpeg", "special.png"] %> %>
+
+<%= link_to '新しい順', subjects_path(latest: "true") %>
+<%= link_to '古い順', subjects_path(old: "true") %>
 
 <div class="container mt-5">
     <div class="row g-4">
@@ -9,6 +11,7 @@
                         <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
                         <p>タイトル：<%= subject.title %></p>
                         <p>投稿者：<%= subject.name %></p>
+                        <p>作成日時：<%= l subject.created_at %></p>
                         <p><%= subject.content %></p>
                         <% if subject.file.file %>
                             <% file_path = subject.file.file.file %>

@@ -3,7 +3,17 @@ class SubjectsController < ApplicationController
 
 
     def index
-        @subjects = Subject.includes(:user)
+        # @subjects = Subject.includes(:user)
+
+        if params[:latest]
+            @subjects = Subject.latest
+        elsif params[:old]
+            @subjects = Subject.old
+        # elsif params[:star_count]
+        #     @subjects = Subject.star_count
+        else
+            @subjects = Subject.includes(:user)
+        end
     end
 
     def new

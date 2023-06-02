@@ -6,6 +6,10 @@ class Subject < ApplicationRecord
 
     validates :subject_id, numericality: { other_than: 1, message: "can't be blank" }
 
+    scope :latest, -> {order(created_at: :desc)}
+    scope :old, -> {order(created_at: :asc)}
+    # scope :star_count, -> {order(star: :desc)}
+
     def self.search(keyword)
         if keyword.present?
             subjects = ["国語","社会","数学","理科","英語","その他の教科","特別活動"]

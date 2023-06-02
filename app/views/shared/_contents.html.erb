@@ -1,11 +1,11 @@
-<% subject_images = ["", "", "japanese.jpeg", "society.jpeg", "math.jpeg", "sciense.jpeg", "english.jpeg", "others.jpeg", "special.png"] %>
+<%# <% subject_images = ["", "", "japanese.jpeg", "society.jpeg", "math.jpeg", "sciense.jpeg", "english.jpeg", "others.jpeg", "special.png"] %> %>
 
 <div class="container mt-5">
     <div class="row g-4">
         <% @subjects.each do |subject| %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
-                        <%= image_tag("#{subject_images[subject.subject_id]}") %>
+                        <%# <%= image_tag("#{subject_images[subject.subject_id]}") %>
                         <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
                         <p>タイトル：<%= subject.title %></p>
                         <p>投稿者：<%= subject.name %></p>

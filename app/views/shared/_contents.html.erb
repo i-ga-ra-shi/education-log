@@ -4,6 +4,7 @@
             <% if controller_name == 'subjects' && subject.user_id == current_user.id %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
+                        <p>学校名:<%= current_user.school%>
                         <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
                         <p>科目：<%= subject.sub_subject %></p>
                         <p>単元・タイトル：<%= subject.title %></p>
@@ -18,19 +19,27 @@
                         <% end %>
 
                         <% if Public.where(subject_id: subject.id).exists? %>
-                            <%= link_to public_path(subject.public.id) , method: :delete do %>
-                                <div class="form-check form-switch mt-3 active">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
-                                    <label class="form-check-label" for="flexSwitchCheckDefault"><span class="text-secondary">公開する</span> <span class="fw-bold">/ 非公開にする</span></label>
-                                </div>
-                            <% end %>
+                            <div class="d-flex mt-3">
+                                <span class="text-secondary text-decoration-none me-2">非公開にする</span>
+                                <%= link_to public_path(subject.public.id) , method: :delete, class: "align-middle" do %>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                    </div>
+                                <% end %>
+                                <span class="text-primary fw-bold text-decoration-none">公開中</span>
+                            </div>
                         <% else%>
-                            <%= link_to publics_path(user_id: current_user.id, subject_id: subject.id) , method: :post do %>
-                                <div class="form-check form-switch mt-3">
-                                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
-                                    <label class="form-check-label" for="flexSwitchCheckDefault"><span class="fw-bold">公開する</span> <span class="text-secondary">/ 非公開にする</span></label>
-                                </div>
-                            <% end %>
+                            <div class="d-flex mt-3">
+                                <span class="text-secondary text-decoration-none me-2">非公開</span>
+                                    <%= link_to publics_path(user_id: current_user.id, subject_id: subject.id) , method: :post do %>
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+                                        </div>
+                                    <% end %>
+                                <span class="text-secondary text-decoration-none">公開する</span>
+                            </div>
                         <% end %>
                     </div>
                 </div>
@@ -39,6 +48,7 @@
             <% if controller_name == 'publics' %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
+                        <p>学校名:<%= current_user.school%>
                         <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
                         <p>科目：<%= subject.sub_subject %></p>
                         <p>単元・タイトル：<%= subject.title %></p>

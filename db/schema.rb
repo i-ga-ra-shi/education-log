@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2023_06_05_055140) do
     t.integer "month_id", null: false
     t.integer "student_id", null: false
     t.string "name", null: false
-    t.string "content", null: false
+    t.text "content", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

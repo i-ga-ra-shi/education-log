@@ -7,10 +7,9 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
       t.integer :month_id, null: false
       t.integer :student_id, null:false
       t.string :name, null: false
-      t.string :content, null: false
+      t.text :content, null: false
       t.references :user, null: false, foreign_key: true
-      t.timestamps
-      
+      t.timestamps     
     end
   end
 end

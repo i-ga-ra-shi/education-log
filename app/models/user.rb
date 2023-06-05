@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :school, presence: true
   has_many :subjects
+  has_many :publics
 end

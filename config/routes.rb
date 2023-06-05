@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :publics, only: [:index]
+  resources :publics, only: [:index, :create, :destroy]
   
 end

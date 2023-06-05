@@ -29,19 +29,6 @@ class SubjectsController < ApplicationController
         else
             @subjects = Subject.includes(:user)
         end
-
-        # if params[:latest]
-        #     @subjects = Subject.latest
-        # elsif params[:old]
-        #     @subjects = Subject.old
-        # elsif params[:subject_id]
-        #     @subjects = Subject.subject_id
-        # elsif params[:month_id]
-        #     @subjects = Subject.month_id
-        # elsif params[:student_id]
-        #     @subjects = Subject.student_id
-        # else
-        # end
     end
 
     def new
@@ -51,7 +38,7 @@ class SubjectsController < ApplicationController
     def create
         @subject = Subject.new(subject_params)
         if @subject.save
-            redirect_to(root_path)
+            redirect_to(subjects_path)
         else
             render(:new)
         end

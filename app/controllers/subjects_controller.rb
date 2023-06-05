@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
     before_action :move_to_index, except: [:index, :show, :search]
-
+    before_action :authenticate_user!
 
     def index
         if params[:subject_name]

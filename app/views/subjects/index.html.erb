@@ -1,4 +1,7 @@
+<%= render("shared/header") %>
+
 <div class="list-group list-group-horizontal col-9 mx-auto mt-5 p-3">
+    <%= link_to('全て表示', subjects_path, class: "list-group-item list-group-item-action text-center") %>
     <%= link_to('新しい順', subjects_path(latest: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
     <%= link_to('古い順', subjects_path(old: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
     <%= link_to('教科順', subjects_path(subject_id: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
@@ -6,7 +9,7 @@
     <%= link_to('学年順', subjects_path(student_id: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
 </div>
 
-<div class="list-group list-group-horizontal col-9 mx-auto mt-2 p-3">
+<div class="list-group list-group-horizontal col-9 mx-auto mt-1 py-auto">
     <%= link_to('国語',         subjects_path(subject_name: "2", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
     <%= link_to('社会',         subjects_path(subject_name: "3", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
     <%= link_to('数学',         subjects_path(subject_name: "4", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>

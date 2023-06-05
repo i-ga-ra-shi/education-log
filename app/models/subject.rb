@@ -15,7 +15,6 @@ class Subject < ApplicationRecord
     scope :student_id, -> {order(student_id: :asc)}
     scope :subject_name, ->(subject_id) { where("subject_id = ?", subject_id) }
 
-
     def self.search(keyword)
         if keyword.present?
             Subject.where('sub_subject LIKE ? OR title LIKE ? OR name LIKE ? OR content LIKE ?', "%#{keyword}%", "%#{keyword}%", "%#{keyword}%", "%#{keyword}%")

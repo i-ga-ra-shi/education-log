@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root to: "introductions#index"
   
-  resources :subjects, only: [:index, :new, :create] do
+  resources :subjects do
     collection do
       get 'search'
     end

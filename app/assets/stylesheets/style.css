@@ -2,10 +2,10 @@
 
 .card-effect {
     box-shadow: none;
-    padding: 25px;
-    border: gray 2px solid;
+    padding: 10px;
+    /* border: gray 2px solid; */
     border-radius: 6px;
-    background-color: aliceblue;
+    background-color: rgb(211, 223, 243, 0.5);
 }
 
 .card-effect:hover {

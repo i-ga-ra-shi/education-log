@@ -1,26 +1,13 @@
 <div class="container mt-5">
-    <div class="row g-4">
+    <div class="row g-3">
         <% @subjects.each do |subject| %>
             <% if controller_name == 'subjects' && subject.user_id == current_user.id %>
                 <div class="col-lg-4 col-md-6" >
-                    <div class="service card-effect">
-                        <p>学校名:<%= current_user.school%>
-                        <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
-                        <p>科目：<%= subject.sub_subject %></p>
-                        <p>単元・タイトル：<%= subject.title %></p>
-                        <p>授業実施月：<%= subject.month.name %></p>
-                        <p>学年：<%= subject.student.name %></p>
-                        <p>投稿者：<%= subject.name %></p>
-                        <p>作成日時：<%= l subject.created_at %></p>
-                        <p><%= subject.content %></p>
-                        <% if subject.file.file %>
-                            <% file_path = subject.file.file.file %>
-                            <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
-                        <% end %>
-
+                    <div class="service card-effect">                    
+                        <%= render(partial: "shared/card", locals: {subject: subject}) %>
                         <% if Public.where(subject_id: subject.id).exists? %>
-                            <div class="d-flex mt-3">
-                                <span class="text-secondary text-decoration-none me-2">非公開にする</span>
+                            <div class="d-flex justify-content-center mt-3 ">
+                                <span class="text-secondary text-decoration-none mx-2">非公開にする</span>
                                 <%= link_to public_path(subject.public.id) , method: :delete, class: "align-middle" do %>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
@@ -30,8 +17,8 @@
                                 <span class="text-primary fw-bold text-decoration-none">公開中</span>
                             </div>
                         <% else%>
-                            <div class="d-flex mt-3">
-                                <span class="text-secondary text-decoration-none me-2">非公開</span>
+                            <div class="d-flex justify-content-center mt-3">
+                                <span class="text-secondary text-decoration-none mx-2">非公開</span>
                                     <%= link_to publics_path(user_id: current_user.id, subject_id: subject.id) , method: :post do %>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
@@ -48,23 +35,10 @@
             <% if controller_name == 'publics' %>
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">
-                        <p>学校名:<%= current_user.school%>
-                        <p>教科：<%= ChooseSubject.find(subject.subject_id).name %></p>
-                        <p>科目：<%= subject.sub_subject %></p>
-                        <p>単元・タイトル：<%= subject.title %></p>
-                        <p>授業実施月：<%= subject.month.name %></p>
-                        <p>学年：<%= subject.student.name %></p>
-                        <p>投稿者：<%= subject.name %></p>
-                        <p>作成日時：<%= l subject.created_at %></p>
-                        <p><%= subject.content %></p>
-                        <% if subject.file.file %>
-                            <% file_path = subject.file.file.file %>
-                            <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
-                        <% end %>
+                        <%= render(partial: "shared/card", locals: {subject: subject}) %>
                     </div>
                 </div>
             <% end %>
-
         <% end %>
 
     </div>

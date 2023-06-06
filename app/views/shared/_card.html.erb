@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+    <%= current_user.school %>
+  </div>
+  <div class="card-body">
+    <div class="col-10 mt-1">教科 : <%= ChooseSubject.find(subject.subject_id).name %></div>
+    <div class="col-10 mt-1">科目 : <%= subject.sub_subject %></div>
+    <div class="col-10 mt-1">学年 : <%= subject.student.name %></div>
+    <div class="col-10 mb-4">授業実施月 : <%= subject.month.name %></div>
+    <h5 class="card-title mb-2"><%= subject.title %></h5>
+    <p class="card-text"><%= subject.content %></p>
+    <% if subject.file.file %>
+        <% file_path = subject.file.file.file %>
+        <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
+    <% end %>
+    <% if controller_name == 'subjects' %>
+        <a href="#" class="btn btn-light text-secondary">詳細</a>
+        <a href="#" class="btn btn-light text-secondary">編集</a>
+        <a href="#" class="btn btn-light text-danger">削除</a>
+    <% end %>
+  </div>
+  <div class="card-footer text-muted d-flex justify-content-between">
+    <div><%= l subject.created_at %></div>
+    <div>投稿者：<%= subject.name %></div>
+  </div>
+</div>

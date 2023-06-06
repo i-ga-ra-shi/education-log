@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <%= current_user.school %>
+    <%= subject.user.school %>
   </div>
   <div class="card-body">
     <div class="col-10 mt-1">教科 : <%= ChooseSubject.find(subject.subject_id).name %></div>
@@ -14,9 +14,11 @@
         <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
     <% end %>
     <% if controller_name == 'subjects' %>
+      <div>
         <a href="#" class="btn btn-light text-secondary">詳細</a>
         <a href="#" class="btn btn-light text-secondary">編集</a>
         <a href="#" class="btn btn-light text-danger">削除</a>
+      </div>
     <% end %>
   </div>
   <div class="card-footer text-muted d-flex justify-content-between">

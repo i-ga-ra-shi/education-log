@@ -5,29 +5,9 @@
                 <div class="col-lg-4 col-md-6" >
                     <div class="service card-effect">                    
                         <%= render(partial: "shared/card", locals: {subject: subject}) %>
-                        <% if Public.where(subject_id: subject.id).exists? %>
-                            <div class="d-flex justify-content-center mt-3 ">
-                                <span class="text-secondary text-decoration-none mx-2">非公開にする</span>
-                                <%= link_to public_path(subject.public.id) , method: :delete, class: "align-middle" do %>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input public-button" type="checkbox" id="flexSwitchCheckDefault" checked>
-                                        <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                    </div>
-                                <% end %>
-                                <span class="text-primary fw-bold text-decoration-none">公開中</span>
-                            </div>
-                        <% else%>
-                            <div class="d-flex justify-content-center mt-3">
-                                <span class="text-secondary text-decoration-none mx-2">非公開</span>
-                                    <%= link_to publics_path(user_id: current_user.id, subject_id: subject.id) , method: :post do %>
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input public-button" type="checkbox" id="flexSwitchCheckDefault">
-                                            <label class="form-check-label" for="flexSwitchCheckDefault"></label>
-                                        </div>
-                                    <% end %>
-                                <span class="text-secondary text-decoration-none">公開する</span>
-                            </div>
-                        <% end %>
+                        <div id="public_buttons_<%= subject.id %>">
+                            <%= render(partial: "shared/public_button", locals: {subject: subject}) %>
+                        </div>
                     </div>
                 </div>
             <% end %>

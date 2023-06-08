@@ -5,16 +5,21 @@ function preview() {
         checked.addEventListener('click', function(){
             const deleteFlg = window.confirm('投稿を非公開にしますか？');
             if(deleteFlg) {
-                // ボタンを入れ替える
-                const newButton = document.createElement('div');
-                newButton.className = 'form-check form-switch p-0';
-                newButton.innerHTML = `
+                // ボタンを作成する
+                const newButtonUnchecked = document.createElement('div');
+                newButtonUnchecked.className = 'form-check form-switch p-0';
+                newButtonUnchecked.innerHTML = `
                 <input class="form-check-input public-button public-button-unchecked" type="checkbox" id="flexSwitchCheckDefault">
                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                 `;
-                checked.parentNode.replaceChildren(newButton, checked);
+
+                // ボタンを入れ替える
+                checked.parentNode.replaceChildren(newButtonUnchecked, checked);
                 checked.remove();
-                newButton.click();
+
+                // ボタンをクリックしてリクエストを送信
+                newButtonUnchecked.click();
+
             } else {
                 ;
             }
@@ -27,14 +32,21 @@ function preview() {
         unchecked.addEventListener('click', function(){
             const publicFlg = window.confirm('投稿を公開しますか？');
             if(publicFlg) {
-                const newButton = document.createElement('div');
-                newButton.className = 'form-check form-switch p-0';
-                newButton.innerHTML = `
+                // ボタンを作成する
+                const newButtonChecked = document.createElement('div');
+                newButtonChecked.className = 'form-check form-switch p-0';
+                newButtonChecked.innerHTML = `
                 <input class="form-check-input public-button public-button-checked" type="checkbox" id="flexSwitchCheckDefault" checked>
                 <label class="form-check-label" for="flexSwitchCheckDefault"></label>
                 `;
-                unchecked.parentNode.replaceChildren(newButton, unchecked);
+
+                // ボタンを入れ替える
+                unchecked.parentNode.replaceChildren(newButtonChecked, unchecked);
                 unchecked.remove();
+
+                // ボタンをクリックしてリクエストを送信
+                newButtonChecked.click();
+                
             } else {
                 ;
             }

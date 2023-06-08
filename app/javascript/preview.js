@@ -1,9 +1,11 @@
 function preview() {
+    // 公開されている記事がクリックされたときに非公開にする
     const publicButtonChecked = document.querySelectorAll(".public-button-checked");
     for (const checked of publicButtonChecked) {
         checked.addEventListener('click', function(){
             const deleteFlg = window.confirm('投稿を非公開にしますか？');
             if(deleteFlg) {
+                // ボタンを入れ替える
                 const newElement = document.createElement('div');
                 newElement.className = 'form-check form-switch p-0';
                 newElement.innerHTML = `
@@ -12,12 +14,14 @@ function preview() {
                 `;
                 checked.parentNode.replaceChildren(newElement, checked);
                 checked.remove();
+
             }else {
                 ;
             }
         })
     }
 
+    // 非公開の記事がクリックされたときに公開する
     const publicButtonUnchecked = document.querySelectorAll(".public-button-unchecked");
     for (const unchecked of publicButtonUnchecked) {
         unchecked.addEventListener('click', function(){

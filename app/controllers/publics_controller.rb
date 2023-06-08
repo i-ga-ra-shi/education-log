@@ -7,18 +7,10 @@ class PublicsController < ApplicationController
     def create
         @public = Public.new(public_params)
         @public.save
-        #     # redirect_to(subjects_path)
-        # else
-        #     render(subjects_path)
-        # end
     end
 
     def destroy
         Public.find(params[:id]).destroy
-        #     redirect_to(subjects_path)
-        # else
-        #     render(subjects_path)
-        # end
     end
 
     private

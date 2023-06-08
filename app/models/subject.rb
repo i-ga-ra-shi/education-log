@@ -5,7 +5,7 @@ class Subject < ApplicationRecord
     belongs_to :choose_subject
     belongs_to :month
     belongs_to :student
-    has_one :public
+    has_one :public, dependent: :destroy
 
     validates :subject_id, :month_id, :student_id, numericality: { other_than: 1, message: "can't be blank" }
 

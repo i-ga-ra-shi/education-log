@@ -11,13 +11,14 @@
     <p class="card-text"><%= subject.content %></p>
     <% if subject.file.file %>
         <% file_path = subject.file.file.file %>
-        <%= link_to("添付ファイル：#{subject.file.file.original_filename}", subject.file.url) %>
+        <p class="mb-1"><%= 添付ファイル： %></p>
+        <%= link_to("#{subject.file.file.original_filename}", subject.file.url, class: "mb-2") %>
     <% end %>
     <% if controller_name == 'subjects' %>
       <div>
-        <a href="#" class="btn btn-light text-secondary">詳細</a>
-        <a href="#" class="btn btn-light text-secondary">編集</a>
-        <a href="#" class="btn btn-light text-danger">削除</a>
+        <%= link_to("詳細", subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
+        <%= link_to("編集", edit_subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
+        <%= link_to("削除", subject_path(subject.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-light text-danger text-decoration-none border-secondary") %>
       </div>
     <% end %>
   </div>

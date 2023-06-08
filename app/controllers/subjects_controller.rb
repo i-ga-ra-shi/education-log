@@ -55,6 +55,8 @@ class SubjectsController < ApplicationController
     end
 
     def destroy
+        Subject.find(params[:id]).destroy
+        redirect_to(subjects_path)
     end
 
     def search

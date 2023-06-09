@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   validates :school, presence: true
   has_many :subjects, dependent: :destroy
-  has_many :publics
+  has_many :publics, dependent: :destroy
 end

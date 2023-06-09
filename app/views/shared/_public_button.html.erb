@@ -10,8 +10,8 @@
         <span class="text-secondary text-decoration-none">公開</span>
     </div>
 <% else%>
-    <div class="d-flex justify-content-center mt-3">
-        <span class="text-secondary text-decoration-none mx-2">非公開</span>
+    <div class="d-flex justify-content-center">
+        <span class="text-secondary text-decoration-none me-2">非公開</span>
             <%= link_to(publics_path(user_id: current_user.id, subject_id: subject.id), method: :post, remote: true) do %>
                 <div class="form-check form-switch">
                     <input class="form-check-input public-button public-button-unchecked" type="checkbox" id="flexSwitchCheckDefault">

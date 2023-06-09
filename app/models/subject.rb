@@ -8,6 +8,7 @@ class Subject < ApplicationRecord
     has_one :public, dependent: :destroy
 
     validates :subject_id, :month_id, :student_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :title, :name, :content, presence: true
 
     scope :latest, -> {order(created_at: :desc)}
     scope :old, -> {order(created_at: :asc)}

@@ -72,3 +72,8 @@ form .form-control {
       font-size: 3.5rem;
     }
   }
+
+/* フラッシュ */
+.bg-orange {
+    background-color: rgba(245, 212, 173, 0.7);
+}

@@ -19,4 +19,10 @@
     <%= link_to('特別活動',      subjects_path(subject_name: "8", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
 </div>
 
+<% if ["投稿内容を更新しました。","投稿を削除しました。"].include?(flash[:notice]) %>
+    <div class="bg-orange text-center fs-4 col-9 py-1 mx-auto mt-4">
+        <span class="align-middle text-primary"><%= flash[:notice] %></span>
+    </div>
+<% end %>
+
 <%= render("shared/contents") %>

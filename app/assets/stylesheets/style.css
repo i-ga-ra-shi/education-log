@@ -2,18 +2,20 @@
 
 .card-effect {
     box-shadow: none;
-    padding: 10px;
-    /* border: gray 2px solid; */
     border-radius: 6px;
-    background-color: rgba(211, 223, 243, 0.5);
+    max-height: 500px;
+    padding: 7px;
+    overflow: scroll;
+    background-color: rgba(211, 223, 243, 0.9);
 }
 
 .card-effect:hover {
     box-shadow: 3px 3px 10px 7px rgba(0,0,0,0.3);
     transition: all 0.4s ease;
+    padding: 2px;
 }
 
-.iconbox {
+/* .iconbox {
     width: 54px;
     height: 54px;
     display: flex;
@@ -23,7 +25,7 @@
     font-size: 32px;
     background-color: #1F6EFD;
     border-radius: 100px;
-}
+} */
 
 /* contact section */
 form input.form-control {

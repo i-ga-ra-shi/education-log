@@ -1,6 +1,6 @@
 <% if Public.where(subject_id: subject.id).exists? %>
-    <div class="d-flex justify-content-center mt-3 ">
-        <span class="text-secondary text-decoration-none mx-2">非公開</span>
+    <div class="d-flex justify-content-center">
+        <span class="text-secondary text-decoration-none me-2">非公開</span>
         <%= link_to(public_path(subject.public.id), method: :delete, class: "align-middle", remote: true) do %>
             <div class="form-check form-switch">
                 <input class="form-check-input public-button public-button-checked" type="checkbox" id="flexSwitchCheckDefault" checked>

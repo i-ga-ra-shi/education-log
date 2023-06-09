@@ -15,7 +15,7 @@
         <%= link_to("#{subject.file.file.original_filename}", subject.file.url, class: "mb-2") %>
     <% end %>
     <% if controller_name == 'subjects' %>
-      <div>
+      <div class="d-flex justify-content-center mt-4">
         <%= link_to("詳細", subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
         <%= link_to("編集", edit_subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
         <%= link_to("削除", subject_path(subject.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-light text-danger text-decoration-none border-secondary") %>
@@ -25,5 +25,10 @@
   <div class="card-footer text-muted d-flex justify-content-between">
     <div><%= l subject.created_at %></div>
     <div>投稿者：<%= subject.name %></div>
+  </div>
+  <div class="card-footer text-muted d-flex justify-content-center">   
+      <div id="public_buttons_<%= subject.id %>" class="">
+          <%= render(partial: "shared/public_button", locals: {subject: subject}, class: "align-middle") %>
+      </div>
   </div>
 </div>

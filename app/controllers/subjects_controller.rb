@@ -1,6 +1,7 @@
 class SubjectsController < ApplicationController
     before_action :move_to_index, except: [:index, :show, :search]
     before_action :authenticate_user!
+    before_action :set_subject, only: [:show, :edit, :update]
 
     def index
         if params[:subject_name]
@@ -45,32 +46,12 @@ class SubjectsController < ApplicationController
     end
 
     def show
-        @subject = Subject.find(params[:id])
     end
 
     def edit
-        @subject = Subject.find(params[:id])
     end
 
-    # def edit
-    #     if Purchase.where(item_id: @item.id).exists?
-    #       redirect_to root_path 
-    #     else
-    #       move_to_index
-    #     end
-    #   end
-    
-    #   def update
-    #     if @item.update(item_params)
-    #       redirect_to item_path(@item.id)
-    #     else
-    #       render :edit
-    #     end
-    #   end
-
-
     def update
-        @subject = Subject.find(params[:id])
         if @subject.update(subject_params)
             flash[:notice] = "投稿内容を更新しました。"
             redirect_to(subjects_path)
@@ -111,6 +92,10 @@ class SubjectsController < ApplicationController
         unless user_signed_in?
             redirect_to action: :index
         end
+    end
+
+    def set_subject
+        @subject = Subject.find(params[:id])
     end
 
 end

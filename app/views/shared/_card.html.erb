@@ -6,12 +6,12 @@
     <div class="col-10 mt-1">教科 : <%= ChooseSubject.find(subject.subject_id).name %></div>
     <div class="col-10 mt-1">科目 : <%= subject.sub_subject %></div>
     <div class="col-10 mt-1">学年 : <%= subject.student.name %></div>
-    <div class="col-10 mb-4">授業実施月 : <%= subject.month.name %></div>
+    <div class="col-10 mb-4">実施 : <%= subject.month.name %></div>
     <h5 class="card-title mb-2"><%= subject.title %></h5>
     <p class="card-text"><%= subject.content %></p>
     <% if subject.file.file %>
         <% file_path = subject.file.file.file %>
-        <p class="mb-1"><%= 添付ファイル： %></p>
+        <p class="mb-1">添付ファイル</p>
         <%= link_to("#{subject.file.file.original_filename}", subject.file.url, class: "mb-2") %>
     <% end %>
     <% if controller_name == 'subjects' %>
@@ -20,15 +20,21 @@
         <%= link_to("編集", edit_subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
         <%= link_to("削除", subject_path(subject.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-light text-danger text-decoration-none border-secondary") %>
       </div>
+    <% else %>
+      <div class="d-flex justify-content-center mt-4">
+        <%= link_to("詳細", subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
+      </div>
     <% end %>
   </div>
   <div class="card-footer text-muted d-flex justify-content-between">
     <div><%= l subject.created_at %></div>
     <div>投稿者：<%= subject.name %></div>
   </div>
-  <div class="card-footer text-muted d-flex justify-content-center">   
-      <div id="public_buttons_<%= subject.id %>" class="">
-          <%= render(partial: "shared/public_button", locals: {subject: subject}, class: "align-middle") %>
-      </div>
-  </div>
+  <% if controller_name == 'subject' %>
+    <div class="card-footer text-muted d-flex justify-content-center">   
+        <div id="public_buttons_<%= subject.id %>" class="">
+            <%= render(partial: "shared/public_button", locals: {subject: subject}, class: "align-middle") %>
+        </div>
+    </div>
+  <% end %>
 </div>

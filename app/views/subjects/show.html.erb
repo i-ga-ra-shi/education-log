@@ -1,43 +1,54 @@
 <%= render("shared/header") %>
 
-<h1 class="visually-hidden">Features examples</h1>
+<main>
   <div class="container px-4 py-5" id="featured-3">
-    <h2 class="pb-2 border-bottom">Columns with icons</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <h2 class="pb-2 border-bottom"><%= @subject.title %></h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-sm-2">
       <div class="feature col">
-        <div class="feature-icon bg-danger bg-gradient">
+        <div class="feature-icon bg-cream bg-gradient">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
         </div>
-        <h2>Featured title</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+        <h5><%= ChooseSubject.find(@subject.subject_id).name %></h5>
+        
       </div>
       <div class="feature col">
-        <div class="feature-icon bg-danger bg-gradient">
+        <div class="feature-icon bg-cream bg-gradient">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
         </div>
-        <h2>Featured title</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+        <h5><%= @subject.sub_subject %></h5>
+        
       </div>
       <div class="feature col">
-        <div class="feature-icon bg-danger bg-gradient">
+        <div class="feature-icon bg-cream bg-gradient">
           <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
         </div>
-        <h2>Featured title</h2>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="icon-link">
-          Call to action
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+        <h5>対象学年：<%= @subject.student.name %></h5>
+        
+      </div>
+      <div class="feature col">
+        <div class="feature-icon bg-cream bg-gradient">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+        </div>
+        <h5>授業実施月：<%= @subject.month.name %></h5>
+        
       </div>
     </div>
+      <div class="feature col-12">
+        <div class="feature-icon bg-cream bg-gradient">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+        </div>
+        <h6 class="lh-lg"><%= @subject.content %></h6>
+      </div>
+      <div class="feature col-12 mt-5">
+        <div class="feature-icon bg-cream bg-gradient">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+        </div>
+        <% if @subject.file.file %>
+          <% file_path = @subject.file.file.file %>
+          <h5 class="mb-1">添付ファイル：<%= link_to("#{@subject.file.file.original_filename}", @subject.file.url, class: "mb-2 fs-5 text-decoration-none") %></h5>
+          
+        <% end %>
+      </div>
   </div>
 </main>
 

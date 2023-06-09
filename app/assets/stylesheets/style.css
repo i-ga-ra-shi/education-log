@@ -79,3 +79,7 @@ form .form-control {
 .bg-orange {
     background-color: rgba(245, 212, 173, 0.7);
 }
+
+.bg-cream {
+    background-color: rgb(255, 241, 163);
+}

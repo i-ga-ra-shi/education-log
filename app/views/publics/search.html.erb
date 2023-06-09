@@ -1,0 +1,22 @@
+<%= render("shared/header") %>
+
+<div class="list-group list-group-horizontal col-9 mx-auto mt-5 p-3">
+    <%= link_to('全て表示', publics_path, class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('新しい順', publics_path(latest: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('古い順', publics_path(old: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('教科順', publics_path(subject_id: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('授業月順', publics_path(month_id: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('学年順', publics_path(student_id: "true", subject_name: params[:subject_name]), class: "list-group-item list-group-item-action text-center") %>
+</div>
+
+<div class="list-group list-group-horizontal col-9 mx-auto mt-1 py-auto">
+    <%= link_to('国語',         publics_path(subject_name: "2", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('社会',         publics_path(subject_name: "3", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('数学',         publics_path(subject_name: "4", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('理科',         publics_path(subject_name: "5", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('英語',         publics_path(subject_name: "6", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('その他の教科',   publics_path(subject_name: "7", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+    <%= link_to('特別活動',      publics_path(subject_name: "8", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], student_id: params[:student_id]), class: "list-group-item list-group-item-action text-center") %>
+</div>
+
+<%= render("shared/contents") %>

@@ -9,6 +9,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :publics, only: [:index, :create, :destroy]
+  resources :publics, only: [:index, :create, :destroy] do
+    collection do
+      get 'search'
+    end
+  end
   
 end

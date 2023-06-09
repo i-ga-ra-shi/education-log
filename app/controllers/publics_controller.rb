@@ -39,6 +39,23 @@ class PublicsController < ApplicationController
         Public.find(params[:id]).destroy
     end
 
+    def search
+        keyword_subjects = Subject.search(params[:keyword])
+        if params[:latest]
+            @subjects = keyword_subjects.latest
+        elsif params[:old]
+            @subjects = keyword_subjects.old
+        elsif params[:subject_id]
+            @subjects = keyword_subjects.subject_id
+        elsif params[:month_id]
+            @subjects = keyword_subjects.month_id
+        elsif params[:student_id]
+            @subjects = keyword_subjects.student_id
+        else
+            @subjects = keyword_subjects.includes(:user)
+        end
+    end
+    
     private
     def public_params
         params.permit(:user_id, :subject_id)

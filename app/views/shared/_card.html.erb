@@ -21,7 +21,7 @@
         <%= link_to("削除", subject_path(subject.id), method: :delete, data: { confirm: "削除してよろしいですか？" }, class: "btn btn-light text-danger text-decoration-none border-secondary") %>
       </div>
     <% else %>
-      <div class="d-flex justify-content-center mt-4">
+      <div class="d-flex mt-4">
         <%= link_to("詳細", subject_path(subject.id), class: "btn btn-light text-secondary text-decoration-none border-secondary me-1") %>
       </div>
     <% end %>

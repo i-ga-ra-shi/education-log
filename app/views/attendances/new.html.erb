@@ -1,0 +1,23 @@
+<%= form_with(model: @attendance, local: true) do |f| %>
+
+    <div class="title">
+        <%= f.label :status %>
+        <%= f.text_field :status %>
+    </div>
+
+    <div class="time">
+        <%= f.label :start_time %>
+        <%= f.date_field :start_time %>
+    </div>
+
+    <div class="content">
+        <%= f.label :reason %>
+        <%= f.text_field :reason %>
+    </div>
+
+
+    <div class="submit">
+        <%= f.submit %>
+    </div>
+
+<% end %>

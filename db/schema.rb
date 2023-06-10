@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 2023_06_10_043937) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
     t.string "status"
     t.text "reason"
     t.datetime "start_time"

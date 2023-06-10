@@ -1,5 +1,5 @@
 class PublicsController < ApplicationController
-
+    before_action :authenticate_user!
     def index
         @subjects = Subject.where(id: Public.pluck(:subject_id))
         if params[:subject_name]

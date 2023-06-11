@@ -10,9 +10,11 @@ class AttendancesController < ApplicationController
 
     def create
         if Attendance.create(attendance_params)
+            flash[:notice] = "登録しました"
             redirect_to attendances_path
         else
-            render :new
+            flash[:notice] = "全ての欄を入力してください"
+            render :index
         end
     end
 

@@ -4,10 +4,6 @@ class AttendancesController < ApplicationController
         @attendances = Attendance.all
     end
 
-    def new
-        @attendance = Attendance.new
-    end
-
     def show
         @attendance = Attendance.find(params[:id])
     end
@@ -42,7 +38,7 @@ class AttendancesController < ApplicationController
     private
 
     def attendance_params
-        params.require(:attendance).permit(:name, :status, :reason, :start_time)
+        params.permit(:name, :status, :reason, :start_time)
     end
 
 end

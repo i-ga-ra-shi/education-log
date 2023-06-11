@@ -7,7 +7,15 @@
     
     <div class="title">
         <%= f.label :status, "出欠席を登録" %>
-        <%= f.text_field :status %>
+        <select name="status" class="form-select" aria-label="Default select example">
+            <option selected>選択してください</option>
+            <option value="欠席">欠席</option>
+            <option value="遅刻">遅刻</option>
+            <option value="早退">早退</option>
+            <option value="公欠">公欠</option>
+            <option value="忌引き">忌引き</option>
+            <option value="その他">その他</option>
+        </select>
     </div>
 
     <div class="time">

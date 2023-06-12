@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_06_10_043937) do
+ActiveRecord::Schema.define(version: 2023_06_12_035312) do
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -30,12 +30,20 @@ ActiveRecord::Schema.define(version: 2023_06_10_043937) do
     t.index ["user_id"], name: "index_publics_on_user_id"
   end
 
+  create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_students_on_user_id"
+  end
+
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "subject_id", null: false
     t.string "sub_subject"
     t.string "title", null: false
     t.integer "month_id", null: false
-    t.integer "student_id", null: false
+    t.integer "grade_id", null: false
     t.string "name", null: false
     t.text "content", null: false
     t.bigint "user_id", null: false
@@ -60,5 +68,6 @@ ActiveRecord::Schema.define(version: 2023_06_10_043937) do
 
   add_foreign_key "publics", "subjects"
   add_foreign_key "publics", "users"
+  add_foreign_key "students", "users"
   add_foreign_key "subjects", "users"
 end

@@ -14,8 +14,8 @@ class SubjectsController < ApplicationController
                 @subjects = @subjects.subject_id
             elsif params[:month_id]
                 @subjects = @subjects.month_id
-            elsif params[:student_id]
-                @subjects = @subjects.student_id
+            elsif params[:grade_id]
+                @subjects = @subjects.grade_id
             end
         elsif params[:latest]
             @subjects = Subject.latest
@@ -25,8 +25,8 @@ class SubjectsController < ApplicationController
             @subjects = Subject.subject_id
         elsif params[:month_id]
             @subjects = Subject.month_id
-        elsif params[:student_id]
-            @subjects = Subject.student_id
+        elsif params[:grade_id]
+            @subjects = Subject.grade_id
         else
             @subjects = Subject.includes(:user)
         end
@@ -76,8 +76,8 @@ class SubjectsController < ApplicationController
             @subjects = keyword_subjects.subject_id
         elsif params[:month_id]
             @subjects = keyword_subjects.month_id
-        elsif params[:student_id]
-            @subjects = keyword_subjects.student_id
+        elsif params[:grade_id]
+            @subjects = keyword_subjects.grade_id
         else
             @subjects = keyword_subjects.includes(:user)
         end
@@ -85,7 +85,7 @@ class SubjectsController < ApplicationController
 
     private
     def subject_params
-        params.require(:subject).permit(:subject_id, :sub_subject, :title, :month_id, :student_id, :name, :content, :file).merge(user_id: current_user.id)
+        params.require(:subject).permit(:subject_id, :sub_subject, :title, :month_id, :grade_id, :name, :content, :file).merge(user_id: current_user.id)
     end
 
     def move_to_index

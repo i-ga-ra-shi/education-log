@@ -5,7 +5,7 @@ class CreateSubjects < ActiveRecord::Migration[6.0]
       t.string :sub_subject
       t.string :title, null: false
       t.integer :month_id, null: false
-      t.integer :student_id, null:false
+      t.integer :grade_id, null:false
       t.string :name, null: false
       t.text :content, null: false
       t.references :user, null: false, foreign_key: true

@@ -17,7 +17,7 @@ subject_ids = [2, 3, 4, 5, 6, 7, 8]
 sub_subjects = [["現代文", "古典"], ["日本史", "世界史", "現代社会"], ["数学I", "数学A","数学III"], ["化学", "物理", "生物"], ["コミュニケーション", "文法"], ["家庭科", "情報", "体育", "芸術"], ["部活動", "委員会"]]
 titles = ['タイトル1', 'タイトル2', 'タイトル3', 'タイトル4']
 month_ids = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
-student_ids = [2, 3, 4, 5, 6, 7, 8]
+grade_ids = [2, 3, 4, 5, 6, 7, 8]
 names = ['A', 'B', 'C', 'D', 'E']
 contents = [
   "Et libero natus voluptatem sunt repellendus et.",
@@ -35,10 +35,17 @@ user_ids = [1, 2, 3]
     sub_subject: sub_subjects[subject_id - 2].sample,
     title: titles.sample,
     month_id: month_ids.sample,
-    student_id: student_ids.sample,
+    grade_id: grade_ids.sample,
     name: names.sample,
     content: contents.sample,
     user_id: user_ids.sample
   )
 end
 
+# studentsデータの作成
+100.times do
+  Student.create(
+    name: ["田中","鈴木","山本","高橋","佐藤","山口","青木","山田","斉藤","小川"].sample,
+    user_id: user_ids.sample
+  )
+end

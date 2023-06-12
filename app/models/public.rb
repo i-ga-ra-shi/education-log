@@ -6,7 +6,7 @@ class Public < ApplicationRecord
     scope :old, -> {order(created_at: :asc)}
     scope :subject_id, -> {order(subject_id: :asc)}
     scope :month_id, -> {order(month_id: :asc)}
-    scope :student_id, -> {order(student_id: :asc)}
+    scope :grade_id, -> {order(grade_id: :asc)}
     scope :subject_name, ->(subject_id) { where("subject_id = ?", subject_id) }
 
     def self.search(keyword)

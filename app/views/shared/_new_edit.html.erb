@@ -23,8 +23,8 @@
   </div>
 
   <div class="col-9">
-    <%= f.label :student_id, "対象学年" %><br />
-    <%= f.collection_select(:student_id, Student.all, :id, :name, {}, {class:"form-select form-control"}) %>
+    <%= f.label :grade_id, "対象学年" %><br />
+    <%= f.collection_select(:grade_id, Student.all, :id, :name, {}, {class:"form-select form-control"}) %>
   </div>
 
   <div class="col-9">

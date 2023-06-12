@@ -8,7 +8,7 @@
     <div class="col-10 mt-1">学年 : <%= subject.grade.name %></div>
     <div class="col-10 mb-4">実施 : <%= subject.month.name %></div>
     <h5 class="card-title mb-2"><%= subject.title %></h5>
-    <p class="card-text"><%= subject.content %></p>
+    <div class="card-text subject-content mb-4"><%= subject.content %></div>
     <% if subject.file.file %>
         <% file_path = subject.file.file.file %>
         <p class="mb-1">添付ファイル</p>

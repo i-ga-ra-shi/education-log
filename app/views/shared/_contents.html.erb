@@ -2,7 +2,7 @@
     <div class="row g-3">
         <% @subjects.each do |subject| %>
             <% if controller_name == 'subjects' && subject.user_id == current_user.id %>
-                <div class="col-lg-4 col-md-6" >
+                <div class="col-md-6">
                     <div class="service card-effect">                    
                         <%= render(partial: "shared/card", locals: {subject: subject}) %>
                     </div>
@@ -10,8 +10,8 @@
             <% end %>
 
             <% if controller_name == 'publics' %>
-                <div class="col-lg-4 col-md-6" >
-                    <div class="service card-effect">
+                <div class="col-md-6" >
+                    <div class="service card-effect public-card">
                         <%= render(partial: "shared/card", locals: {subject: subject}) %>
                     </div>
                 </div>

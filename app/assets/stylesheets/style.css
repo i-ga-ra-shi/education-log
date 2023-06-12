@@ -3,7 +3,7 @@
 .card-effect {
     box-shadow: none;
     border-radius: 6px;
-    max-height: 500px;
+    height: 550px;
     padding: 7px;
     overflow: scroll;
     background-color: rgba(211, 223, 243, 0.9);
@@ -13,6 +13,24 @@
     box-shadow: 3px 3px 10px 7px rgba(0,0,0,0.3);
     transition: all 0.4s ease;
     padding: 2px;
+}
+
+.subject-content {
+    padding: 7px;
+    height: 150px;
+    overflow: scroll;
+}
+
+.subject-content:hover {
+    font-size: 17px;
+    background-color: rgba(211, 223, 243, 0.2);
+    transition: all 0.5s ease;
+    box-shadow: 2px 2px 7px 5px rgba(0,0,0,0.3);
+}
+
+.public-card {
+    height: 508px;
+    padding: 7px;
 }
 
 /* .iconbox {

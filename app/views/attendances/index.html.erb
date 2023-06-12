@@ -38,13 +38,13 @@
         <%= f.label :reason, "理由" %>
         <%= f.text_field :reason, class: "form-control", style: "height: 100px" %>
     </div>
-    <div class="col-12 text-center">
+    <div class="col-12 text-center mb-5">
         <%= f.submit "出欠を登録", class: "btn btn-primary" %>
     </div>
   <% end %>
   
   <div class="col-lg-8 col-12 ps-lg-5">
-    <%= month_calendar events: @attendances do |date, attendances| %>
+    <%= week_calendar events: @attendances do |date, attendances| %>
       <%= date.day %>
 
       <% attendances.each do |attendance| %>

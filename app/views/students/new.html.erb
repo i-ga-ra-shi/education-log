@@ -1,1 +1,15 @@
-<h1>エクセルファイルから読み取ったデータから生徒登録できる</h1>
+<h3>エクセルファイルから読み取ったデータから生徒登録できる</h3>
+
+<%= form_with(model: @student, class: "row col-5 mx-auto d-flex flex-column", local: true) do |f| %>
+
+    <div class="form-group col-12">
+        <%= f.label :file ,"生徒登録用エクセル"%>
+        <%= f.file_field :file, onchange: 'previewImage()', class: 'form-control' %>
+        <%= f.hidden_field :avatar_cache %>
+    </div>
+
+    <div class="col-5 p-3 mx-auto">
+        <%= f.submit "登録する", class: "btn btn-primary p-2" %>
+    </div>
+
+<% end %>

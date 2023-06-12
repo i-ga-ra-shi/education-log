@@ -4,19 +4,17 @@ class AttendancesController < ApplicationController
         @attendances = Attendance.all
     end
 
-    def new
-        @attendance = Attendance.new
-    end
-
     def show
         @attendance = Attendance.find(params[:id])
     end
 
     def create
         if Attendance.create(attendance_params)
+            flash[:notice] = "登録しました"
             redirect_to attendances_path
         else
-            render :new
+            flash[:notice] = "全ての欄を入力してください"
+            render :index
         end
     end
 
@@ -42,7 +40,7 @@ class AttendancesController < ApplicationController
     private
 
     def attendance_params
-        params.require(:attendance).permit(:name, :status, :reason, :start_time)
+        params.permit(:name, :status, :reason, :start_time)
     end
 
 end

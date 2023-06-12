@@ -1,7 +1,11 @@
-<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>タイトル</strong>
+  <strong>氏名</strong>
+  <%= @attendance.name %>
+</p>
+
+<p>
+  <strong>出欠席</strong>
   <%= @attendance.status %>
 </p>
 
@@ -16,4 +20,7 @@
 </p>
 
 <%= link_to 'Edit', edit_attendance_path(@attendance) %> |
-<%= link_to 'Back', attendances_path %>
+<%= link_to 'Back', attendances_path %> |
+<%= link_to 'Dstroy', attendance_path(@attendance), method: :delete %>
+
+<p id="notice"><%= notice %></p>

@@ -16,8 +16,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :students
-  
+  resources :students do
+    collection do
+      get 'certificate'
+    end
+  end
+
   resources :attendances
   
 end

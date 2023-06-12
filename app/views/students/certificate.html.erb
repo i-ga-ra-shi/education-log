@@ -1,0 +1,27 @@
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold mb-4">認証ページ</div>
+    </div>  
+  </div>
+</div>
+
+
+
+<%= form_with(url: attendances_path(user_id: @user_id, email: @email), class: "row g-3 d-flex flex-column col-5 mx-auto", local: true) do |f| %>
+
+  <div class="col-12">
+    <%= f.label :user_id, "学校 id" %><br />
+    <%= f.text_field :user_id, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="col-12">
+    <%= f.label :email, "学校メールアドレス" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="col-12 d-grid text-center">
+    <%= f.submit "出欠席登録ページへ", class: "btn btn-primary" %>
+  </div>
+
+<% end %>

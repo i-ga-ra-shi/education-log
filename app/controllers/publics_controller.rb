@@ -16,17 +16,17 @@ class PublicsController < ApplicationController
                 @subjects = @subjects.grade_id
             end
         elsif params[:latest]
-            @subjects = Subject.latest
+            @subjects = @subjects.latest
         elsif params[:old]
-            @subjects = Subject.old
+            @subjects = @subjects.old
         elsif params[:subject_id]
-            @subjects = Subject.subject_id
+            @subjects = @subjects.subject_id
         elsif params[:month_id]
-            @subjects = Subject.month_id
+            @subjects = @subjects.month_id
         elsif params[:grade_id]
-            @subjects = Subject.grade_id
+            @subjects = @subjects.grade_id
         else
-            @subjects = Subject.includes(:user)
+            @subjects = @subjects.includes(:user)
         end
     end
 

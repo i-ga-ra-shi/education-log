@@ -29,11 +29,11 @@
   <% if user_signed_in? %>
     <%= link_to("ホーム", subjects_path, class: "btn btn-primary btn-lg me-2") %>
     <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-primary btn-lg me-5") %>
-    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger btn-lg") %>
+    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "btn btn-danger btn-lg") %>
   <% else %>
     <%= link_to("新規登録", new_user_registration_path, class: "btn btn-primary btn-lg me-2") %>
     <%= link_to("ログイン", new_user_session_path, class: "btn btn-primary btn-lg me-5") %>
-    <%= link_to("出欠登録", attendances_path, class: "btn btn-primary btn-lg me-5") %>
+    <%= link_to("出欠登録", certificate_students_path, class: "btn btn-primary btn-lg me-5") %>
     <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-danger btn-lg") %>
   <% end %>
 </div>

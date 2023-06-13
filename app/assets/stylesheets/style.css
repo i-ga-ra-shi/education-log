@@ -101,3 +101,32 @@ form .form-control {
 .bg-cream {
     background-color: rgb(255, 241, 163);
 }
+
+/* 生徒一覧ページ */
+.table-wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.links {
+    text-align: right;
+    padding: 5px;
+}
+
+.bg-dark-gray {
+    background-color: darkgray;
+}
+
+.image-block {
+    width: 500px;
+    font-size: 14px;
+}
+
+.attention {
+    width: 75%;
+}
+
+.sample_image {
+    width: 100%;
+    height: auto;
+}

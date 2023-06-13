@@ -1,0 +1,37 @@
+<%= render("shared/header") %>
+
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold">生徒情報編集</div>
+    </div>  
+  </div>
+</div>
+
+
+<%= form_with(model: @student, class: "row g-3 mx-auto justify-content-center px-5", local: true) do |f| %>
+
+    <div class="col-9">
+        <%= f.label :grade, "学年" %><br />
+        <%= f.text_field :grade, class: "form-control" %>
+    </div>
+
+    <div class="col-9">
+        <%= f.label :class_number, "クラス" %><br />
+        <%= f.text_field :class_number, class: "form-control" %>
+    </div>
+
+    <div class="col-9">
+        <%= f.label :number, "番号" %><br />
+        <%= f.text_field :number, class: "form-control" %>
+    </div>
+
+    <div class="col-9">
+        <%= f.label :name, "氏名" %><br />
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-5 d-grid p-3">
+        <%= f.submit "更新する", class: "btn btn-primary btn-lg p-3" %>
+    </div>
+<% end %>

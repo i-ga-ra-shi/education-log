@@ -1,6 +1,9 @@
 class AttendancesController < ApplicationController
 
     def index
+        user_id = params[:user_id]
+        email = params[:email]
+        binding.pry
         @attendances = Attendance.all
     end
 

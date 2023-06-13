@@ -1,9 +1,23 @@
-<h3>エクセルファイルから読み取ったデータから生徒登録できる</h3>
+<%= render("shared/header") %>
+
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold mb-4">生徒登録ページ</div>
+    </div>  
+  </div>
+</div>
+
+<% if flash[:error] %>
+    <div class="bg-orange text-center fs-4 col-9 py-1 mx-auto mt-4">
+        <span class="align-middle text-primary"><%= flash[:error] %></span>
+    </div>
+<% end %>
 
 <%= form_with(model: @student, class: "row col-5 mx-auto d-flex flex-column", local: true) do |f| %>
 
     <div class="form-group col-12">
-        <%= f.label :file ,"生徒登録用エクセル"%>
+        <%= f.label :file ,"エクセルファイルをアップロードしてください"%>
         <%= f.file_field :file, onchange: 'previewImage()', class: 'form-control' %>
         <%= f.hidden_field :avatar_cache %>
     </div>

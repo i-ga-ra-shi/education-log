@@ -1,5 +1,19 @@
 <%= render("shared/header") %>
 
+<div class="container pt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 text-black-50 fs-1 text-center fw-bold mb-4">生徒一覧ページ</div>
+    </div>  
+  </div>
+</div>
+
+<% if ["登録が完了しました。"].include?(flash[:notice]) %>
+    <div class="bg-orange text-center fs-4 col-9 py-1 mx-auto mt-4">
+        <span class="align-middle text-primary"><%= flash[:notice] %></span>
+    </div>
+<% end %>
+
 <% @students.each do |student| %>
-    <%= student.name %>, 
+    <p class="fs-4 text-center"><%= student.name %></p>
 <% end %>

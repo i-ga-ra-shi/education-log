@@ -1,5 +1,3 @@
-require 'roo'
-
 class StudentsController < ApplicationController
     
     def certificate
@@ -17,7 +15,6 @@ class StudentsController < ApplicationController
     def create
         if params[:student]
             student_registration
-            redirect_to new_student_path
         else
             render :new
         end
@@ -25,6 +22,8 @@ class StudentsController < ApplicationController
 
     private
     def student_registration
+        require 'roo'
+
         # ファイルのパスを取得
         file = params[:student][:file]
         temp_file = file.tempfile.path
@@ -42,14 +41,18 @@ class StudentsController < ApplicationController
             flash[:error] = '「sheet1」という名前のシートが見つかりません'
             redirect_to new_student_path and return
         end
-        rows = sheet.parse(name: "name")
+        rows = sheet.parse(grade: "grade", class_number: "class", number: "number", name: "name")
 
         # 読み取った情報からデータベースに登録
         rows.each do |row|
-            Student.create(name: row[:name], user_id: current_user.id)
+            Student.create(grade: row[:grade], class_number: row[:class_number], number: row[:number], name: row[:name], user_id: current_user.id)
         end
 
         # 一時ファイルの削除
         File.delete(temp_file)
+
+        # フラッシュ作成と画面遷移
+        flash[:notice] = "登録が完了しました。"
+        redirect_to students_path
     end
 end

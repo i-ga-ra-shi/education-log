@@ -31,6 +31,9 @@ ActiveRecord::Schema.define(version: 2023_06_12_035312) do
   end
 
   create_table "students", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "grade"
+    t.integer "class_number"
+    t.integer "number"
     t.string "name"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

@@ -14,16 +14,64 @@
     </div>
 <% end %>
 
+<div class="container pt-2">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 fs-4 text-center fw-bold mb-1"><i class="bi bi-file-earmark-arrow-up"></i> ファイルをアップロードして登録</div>
+    </div>  
+  </div>
+</div>
+<div class="mx-auto image-block mb-2">
+    <div class="attention mx-auto">
+        <p class="my-1"><i class="bi bi-exclamation-circle"></i> アップロードできるファイルは「.xlsx」のみです</p>
+        <p class="my-1"><i class="bi bi-exclamation-circle"></i> シート名は「sheet1」にしてください</p>
+        <p class="my-1"><i class="bi bi-exclamation-circle"></i> 画像と同じカラム名で作成してください</p>
+    </div>
+    <%= image_tag("student_registration_sample", class: "sample_image")%>
+</div>
 <%= form_with(model: @student, class: "row col-5 mx-auto d-flex flex-column", local: true) do |f| %>
 
-    <div class="form-group col-12">
-        <%= f.label :file ,"エクセルファイルをアップロードしてください"%>
+    <div class="form-group col-12 mb-3">
         <%= f.file_field :file, onchange: 'previewImage()', class: 'form-control' %>
         <%= f.hidden_field :avatar_cache %>
     </div>
 
-    <div class="col-5 p-3 mx-auto">
+    <div class="col-5 mx-auto text-center">
         <%= f.submit "登録する", class: "btn btn-primary p-2" %>
     </div>
 
+<% end %>
+
+<div class="container pt-2 mt-5">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div class="p-2 fs-4 text-center fw-bold mb-1"><i class="bi bi-keyboard fs-3"></i> 手動で入力</div>
+    </div>  
+  </div>
+</div>
+<%= form_with(model: @student, class: "row g-3 mx-auto justify-content-center px-5 col-8", local: true) do |f| %>
+
+    <div class="col-sm-4">
+        <%= f.label :grade, "学年" %><br />
+        <%= f.text_field :grade, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-4">
+        <%= f.label :class_number, "クラス" %><br />
+        <%= f.text_field :class_number, class: "form-control" %>
+    </div>
+
+    <div class="col-sm-4">
+        <%= f.label :number, "番号" %><br />
+        <%= f.text_field :number, class: "form-control" %>
+    </div>
+
+    <div class="col-12">
+        <%= f.label :name, "氏名" %><br />
+        <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="col-5 text-center">
+        <%= f.submit "登録する", class: "btn btn-primary p-2" %>
+    </div>
 <% end %>

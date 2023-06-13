@@ -13,14 +13,47 @@ class StudentsController < ApplicationController
     end
 
     def create
-        if params[:student]
+        @student = Student.new(student_params)
+
+        # エクセルファイルがアップロードされたときの処理
+        if params[:student].try(:[], :file)
             student_registration
+            redirect_to students_path
+            flash[:notice] = "登録が完了しました。"
+        # 手動で入力されたときの処理
+        elsif @student.save
+            redirect_to students_path
+            flash[:notice] = "登録が完了しました。"
         else
             render :new
         end
     end
 
+    def edit
+        @student = Student.find(params[:id])
+    end
+
+    def update
+        @student = Student.find(params[:id])
+        if @student.update(student_params)
+            flash[:notice] = "更新しました。"
+            redirect_to(students_path)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        Student.find(params[:id]).destroy
+        flash[:notice] = "削除しました。"
+        redirect_to students_path
+    end
+
     private
+    def student_params
+        params.require(:student).permit(:grade, :class_number, :number, :name).merge(user_id: current_user.id)
+    end
+
     def student_registration
         require 'roo'
 
@@ -50,9 +83,5 @@ class StudentsController < ApplicationController
 
         # 一時ファイルの削除
         File.delete(temp_file)
-
-        # フラッシュ作成と画面遷移
-        flash[:notice] = "登録が完了しました。"
-        redirect_to students_path
     end
 end

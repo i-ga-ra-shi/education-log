@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
         elsif user.email == params[:email]
             redirect_to attendances_path
         else
-            flash[:notice] = "学校idとメールアドレスが一致しません。"
+            flash[:notice] = "学校idとメールアドレスが一致しません"
             render :certificate
         end
     end

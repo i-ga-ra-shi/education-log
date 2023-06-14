@@ -6,7 +6,7 @@
   </div>
 </div>
 
-<% if flash[:notice] %>
+<% if ["存在しない学校idです", "学校idとメールアドレスが一致しません"].include?(flash[:notice]) %>
     <div class="bg-orange text-center fs-4 col-5 mx-auto">
         <span class="align-middle text-primary"><%= flash[:notice] %></span>
     </div>
@@ -29,3 +29,7 @@
   </div>
 
 <% end %>
+
+<div class="text-center">
+  <%= link_to("ホーム", root_path, class: "btn btn-secondary mt-5 col-4 text-center") %>
+</div>

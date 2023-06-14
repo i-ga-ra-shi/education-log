@@ -1,9 +1,6 @@
 class AttendancesController < ApplicationController
 
     def index
-        user_id = params[:user_id]
-        email = params[:email]
-        binding.pry
         @attendances = Attendance.all
     end
 
@@ -12,6 +9,7 @@ class AttendancesController < ApplicationController
     end
 
     def create
+        binding.pry
         if Attendance.create(attendance_params)
             flash[:notice] = "登録しました"
             redirect_to attendances_path
@@ -43,7 +41,7 @@ class AttendancesController < ApplicationController
     private
 
     def attendance_params
-        params.permit(:name, :status, :reason, :start_time)
+        params.permit(:name, :status, :reason, :start_time, :student_id, :user_id)
     end
 
 end

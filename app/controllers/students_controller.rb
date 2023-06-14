@@ -3,9 +3,26 @@ class StudentsController < ApplicationController
     def certificate
 
     end
+
+    def check
+        user = User.find_by(id: params[:user_id])
+        if user.nil?
+            flash[:notice] = "存在しない学校idです"
+            render :certificate
+        elsif user.email == params[:email]
+            redirect_to attendances_path
+        else
+            flash[:notice] = "学校idとメールアドレスが一致しません。"
+            render :certificate
+        end
+    end
     
     def index
         @students = Student.where(user_id: current_user.id)
+    end
+
+    def show
+        render :certificate 
     end
 
     def new

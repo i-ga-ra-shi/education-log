@@ -43,8 +43,11 @@ user_ids = [1, 2, 3]
 end
 
 # studentsデータの作成
-100.times do
+50.times do
   Student.create(
+    grade: [1, 2, 3, 4, 5, 6].sample,
+    class_number: [1, 2, 3, 4, 5, 6].sample,
+    number: rand(30),
     name: ["田中","鈴木","山本","高橋","佐藤","山口","青木","山田","斉藤","小川"].sample,
     user_id: user_ids.sample
   )

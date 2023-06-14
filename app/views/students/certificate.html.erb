@@ -6,9 +6,13 @@
   </div>
 </div>
 
+<% if flash[:notice] %>
+    <div class="bg-orange text-center fs-4 col-5 mx-auto">
+        <span class="align-middle text-primary"><%= flash[:notice] %></span>
+    </div>
+<% end %>
 
-
-<%= form_with(url: attendances_path(user_id: @user_id, email: @email), class: "row g-3 d-flex flex-column col-5 mx-auto", local: true) do |f| %>
+<%= form_with(url: check_students_path, class: "row g-3 d-flex flex-column col-5 mx-auto", local: true) do |f| %>
 
   <div class="col-12">
     <%= f.label :user_id, "学校 id" %><br />

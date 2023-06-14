@@ -10,6 +10,9 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../preview")
+require("chartkick")
+require("chart.js")
+import "chartkick/chart.js"
 import "bootstrap"
 import "../stylesheets/application"
 

@@ -1,5 +1,5 @@
 {
-  "name":"education_log",
+  "name": "education_log",
   "private": true,
   "dependencies": {
     "@popperjs/core": "^2.11.8",
@@ -9,6 +9,8 @@
     "@rails/webpacker": "4.3.0",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
+    "chart.js": "^4.3.0",
+    "chartkick": "^5.0.1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",

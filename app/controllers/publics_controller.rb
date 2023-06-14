@@ -3,7 +3,7 @@ class PublicsController < ApplicationController
     def index
         @subjects = Subject.where(id: Public.pluck(:subject_id))
         if params[:subject_name]
-            @subjects = Subject.subject_name(params[:subject_name])
+            @subjects = @subjects.subject_name(params[:subject_name])
             if params[:latest]
                 @subjects = @subjects.latest
             elsif params[:old]

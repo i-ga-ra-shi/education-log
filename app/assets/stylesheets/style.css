@@ -137,3 +137,53 @@ form .form-control {
     background-position: center;
     background-size: cover;
 } */
+
+.sort-btn {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    /* background-color: blue; */
+    height: 50px;
+}
+
+.link-btn {
+    color: rgb(60, 60, 60);
+    background-color: rgba(94, 173, 199, 0.2);
+    width: 100px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 12px;
+    border: 1px solid rgb(90, 90, 90);
+    transition: ease 0.8s;
+    margin-right: 6px
+}
+
+.all-index {
+    height: 100px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(100, 100, 100, 0.6);
+    border-radius: 20px;
+    margin-right: 50px;
+    transition: ease 0.8s;
+    text-decoration: none;
+}
+
+.all-index:hover {
+    background-color: rgba(100, 100, 100, 0.9);
+    color: white;
+}
+
+.all-text {
+    color: white;
+    height: 30px;
+    font-weight: 600;
+}
+
+.link-btn:hover {
+    color: rgb(90, 90, 90);
+    background-color: rgba(23, 125, 159, 0.6);
+    font-weight: bold;
+}

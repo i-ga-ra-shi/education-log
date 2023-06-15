@@ -1,39 +1,46 @@
-<div id="carouselExampleIndicators" class="carousel slide bg-success" data-bs-ride="carousel">
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div>
+<div id="carouselExampleFade" class="carousel slide carousel-fade carousel-parent" data-bs-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <%= image_tag("carousel1.png", class: "d-block top-image", alt: "...") %>
+      <%= image_tag("carousel1.png", class: "d-block", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block carousel-content">
+        <h3>授業記録を蓄積しよう</h3>
+        <p>授業資料や流れを蓄積して職場内で共有しましょう</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <%= image_tag("carousel2.png", class: "d-block top-image", alt: "...") %>
+      <%= image_tag("carousel2.png", class: "d-block", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block carousel-content">
+        <h3>新規採用者や転任者も安心</h3>
+        <p>何月にどのような授業を実施したのか、すぐ参考にすることができます</p>
+      </div>
     </div>
     <div class="carousel-item">
-        <%= image_tag("carousel3.png", class: "d-block top-image", alt: "...") %>
+      <%= image_tag("carousel3.png", class: "d-block", alt: "...") %>
+      <div class="carousel-caption d-none d-md-block carousel-content">
+        <h3>投稿を公開しよう</h3>
+        <p>公開されている資料をいつでも参考にできます。積極的に公開して、他校とのつながりを持とう</p>
+      </div>
     </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
   </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
   </button>
-</div>
 
-<div class="d-flex justify-content-center mt-5 vh-20">
-  <% if user_signed_in? %>
-    <%= link_to("ホーム", subjects_path, class: "btn btn-primary btn-lg me-2") %>
-    <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-primary btn-lg me-5") %>
-    <%= link_to("ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "btn btn-danger btn-lg") %>
-  <% else %>
-    <%= link_to("新規登録", new_user_registration_path, class: "btn btn-primary btn-lg me-2") %>
-    <%= link_to("ログイン", new_user_session_path, class: "btn btn-primary btn-lg me-5") %>
-    <%= link_to("出欠登録", certificate_students_path, class: "btn btn-primary btn-lg me-5") %>
-    <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-danger btn-lg") %>
-  <% end %>
+  <div class="d-flex justify-content-center carousel-child">
+    <% if user_signed_in? %>
+      <%= link_to("ホーム", subjects_path, class: "btn btn-primary btn-lg me-2 border-secondary") %>
+      <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-primary btn-lg me-5 border-secondary") %>
+      <%= link_to("ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" }, class: "btn btn-danger btn-lg border-secondary") %>
+    <% else %>
+      <%= link_to("新規登録", new_user_registration_path, class: "btn btn-primary btn-lg me-2 border-secondary") %>
+      <%= link_to("ログイン", new_user_session_path, class: "btn btn-primary btn-lg me-5 border-secondary") %>
+      <%= link_to("出欠登録（生徒用）", certificate_students_path, class: "btn btn-primary btn-lg me-5 border-secondary") %>
+      <%= link_to("公開済み投稿ページ", publics_path, class: "btn btn-danger btn-lg border-secondary") %>
+    <% end %>
+  </div>
 </div>

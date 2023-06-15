@@ -32,18 +32,20 @@
     height: 508px;
     padding: 7px;
 }
+/*----------------------------
+scroll_up ｜下から上へ出現
+----------------------------*/
+.scroll_up {
+    transition: 0.8s ease-in-out;
+    transform: translateY(30px);
+    opacity: 0;
+}
 
-/* .iconbox {
-    width: 54px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-size: 32px;
-    background-color: #1F6EFD;
-    border-radius: 100px;
-} */
+.scroll_up.on {
+    transform: translateY(0);
+    opacity: 1.0;
+}
+  
 
 /* contact section */
 form input.form-control {
@@ -145,7 +147,7 @@ form .form-control {
     color: white;
     background-color: rgba(100, 100, 100, 0.6);
     box-shadow: 3px 3px 10px 7px rgba(0,0,0,0.3);
-    width: 200px;
+    width: 240px;
 }
 
 .sort-btn {

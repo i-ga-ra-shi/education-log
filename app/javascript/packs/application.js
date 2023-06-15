@@ -10,6 +10,7 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../preview")
+require("../scroll_up")
 require("chartkick")
 require("chart.js")
 import "chartkick/chart.js"

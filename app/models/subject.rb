@@ -1,7 +1,7 @@
 class Subject < ApplicationRecord
     extend ActiveHash::Associations::ActiveRecordExtensions
     mount_uploader :file, AvatarUploader
-    belongs_to :user
+    belongs_to :user, dependent: :destroy
     belongs_to :choose_subject
     belongs_to :month
     belongs_to :grade

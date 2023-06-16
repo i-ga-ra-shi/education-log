@@ -43,11 +43,18 @@
           </li>
         <% else %>
           <li class="nav-item">
+            <%= link_to("TOP", root_path, class: "nav-link fs-5") %>
+          </li>
+          <li class="nav-item">
             <%= link_to("ログイン", new_user_session_path, class: "nav-link fs-5") %>
           </li>
           <li class="nav-item">
             <%= link_to("新規登録", new_user_registration_path, class: "nav-link fs-5") %>
           </li>
+          <li class="nav-item">
+            <%= link_to("公開されている投稿", publics_path, class: "nav-link fs-6 dropdown-item text-primary") %>
+          </li>
+
         <% end %>
       </ul>
       <% if controller_name == 'subjects' %>

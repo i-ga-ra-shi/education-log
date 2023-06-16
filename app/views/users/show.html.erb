@@ -1,3 +1,5 @@
+<%= render("shared/header") %>
+
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-8">
@@ -46,21 +48,31 @@
     <div class="col-12 text-center mb-5">
         <%= f.submit "出欠を登録", class: "btn btn-primary col-6" %>
     </div>
-
-    <div class="col-12 text-center">
-      <%= link_to("ホームに戻る", root_path, class: "btn btn-primary col-6") %>
-    </div>
   <% end %>
   
   <div class="col-lg-8 col-12 ps-lg-5">
     <%= week_calendar events: @attendances do |date, attendances| %>
-      <%= date.day %>
-
+      <div class="text-center border-bottom p-1 mb-3">
+        <%= date.day %>
+      </div>
+      <% status_1, status_2, status_3, status_4, status_5, status_6 = 0, 0, 0, 0, 0, 0 %>
       <% attendances.each do |attendance| %>
-        <div>
-          <%= link_to attendance.status, attendance %>
-        </div>
+        <% status_1 += 1 if attendance.status == "欠席" %>
+        <% status_2 += 1 if attendance.status == "遅刻" %>
+        <% status_3 += 1 if attendance.status == "早退" %>
+        <% status_4 += 1 if attendance.status == "公欠" %>
+        <% status_5 += 1 if attendance.status == "忌引き" %>
+        <% status_6 += 1 if attendance.status == "その他" %>
+          <%# <%= link_to attendance.status, attendance %>
       <% end %>
+        <div>
+          <p class="status-number <%= 'status-true' if status_1 != 0 %>">欠：<%= status_1 %>件</p>
+          <p class="status-number <%= 'status-true' if status_2 != 0 %>">遅：<%= status_2 %>件</p>
+          <p class="status-number <%= 'status-true' if status_3 != 0 %>">早：<%= status_3 %>件</p>
+          <p class="status-number <%= 'status-true' if status_4 != 0 %>">公：<%= status_4 %>件</p>
+          <p class="status-number <%= 'status-true' if status_5 != 0 %>">忌：<%= status_5 %>件</p>
+          <p class="status-number <%= 'status-true' if status_6 != 0 %>">他：<%= status_6 %>件</p>
+        </div>
     <% end %>
 
 

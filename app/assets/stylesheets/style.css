@@ -218,3 +218,20 @@ form .form-control {
     background-color: rgba(23, 125, 159, 0.6);
     font-weight: bold;
 }
+
+/* シンプルカレンダー */
+.custom-cell {
+    height: 300px
+}
+
+.table-head {
+    background-color: antiquewhite;
+}
+
+.status-number {
+    text-align: center;
+}
+
+.status-true {
+    color: red;
+}

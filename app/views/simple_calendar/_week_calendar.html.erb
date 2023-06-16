@@ -9,11 +9,11 @@
     <%= link_to t('simple_calendar.next', default: '次の週'), calendar.url_for_next_view %>
   </div>
 
-  <table class="table table-striped mt-2">
-    <thead class="">
+  <table class="table mt-2">
+    <thead class="table-head">
       <tr>
         <% date_range.slice(0, 7).each do |day| %>
-          <th><%= ["日", "月", "火", "水", "木", "金", "土" ][day.wday] %></th>
+          <th class="text-center"><%= ["日", "月", "火", "水", "木", "金", "土" ][day.wday] %></th>
         <% end %>
       </tr>
     </thead>
@@ -22,7 +22,7 @@
       <% date_range.each_slice(7) do |week| %>
         <tr>
           <% week.each do |day| %>
-            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+            <%= content_tag :td, class: "#{calendar.td_classes_for(day)} custom-cell" do %>
               <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
                 <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
               <% else %>

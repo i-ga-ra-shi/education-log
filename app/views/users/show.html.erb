@@ -1,13 +1,13 @@
 <div class="container py-5">
   <div class="row justify-content-center">
     <div class="col-8">
-      <div class="p-2 text-black-50 fs-1 text-center fw-bold">出欠登録ページ</div>
+      <div class="text-black-50 fs-1 text-center fw-bold">出欠登録ページ</div>
     </div>  
   </div>
 </div>
 
-<% if ["登録しました", "全ての欄を入力してください"].include?(flash[:notice]) %>
-    <div class="bg-orange text-center fs-4 col-7 mx-auto">
+<% if ["登録しました", "全ての欄を入力してください", "無効な生徒IDです"].include?(flash[:notice]) %>
+    <div class="bg-orange text-center fs-4 col-7 mx-auto mb-4">
         <span class="align-middle text-primary"><%= flash[:notice] %></span>
     </div>
 <% end %>
@@ -44,7 +44,11 @@
     </div>
     <%= f.hidden_field :user_id, value: params[:id] %>
     <div class="col-12 text-center mb-5">
-        <%= f.submit "出欠を登録", class: "btn btn-primary" %>
+        <%= f.submit "出欠を登録", class: "btn btn-primary col-6" %>
+    </div>
+
+    <div class="col-12 text-center">
+      <%= link_to("ホームに戻る", root_path, class: "btn btn-primary col-6") %>
     </div>
   <% end %>
   
@@ -58,6 +62,8 @@
         </div>
       <% end %>
     <% end %>
-    <%= link_to("ホーム", root_path, class: "btn btn-primary mt-5 col-4") %>
+
+
+    <%= pie_chart [["Work", 320], ["Play", 1492], ["aaa", 700], ["bbb", 1200]] %>
   </div>
 </div>

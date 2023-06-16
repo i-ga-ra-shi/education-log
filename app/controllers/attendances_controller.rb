@@ -5,12 +5,17 @@ class AttendancesController < ApplicationController
     end
 
     def create
-        if Attendance.create(attendance_params)
-            flash[:notice] = "登録しました"
-            redirect_to user_path(params[:user_id])
+        if Student.where(user_id: params[:user_id], id: params[:student_id]).exists?
+            if Attendance.create(attendance_params)
+                flash[:notice] = "登録しました"
+                redirect_to user_path(params[:user_id])
+            else
+                flash[:notice] = "全ての欄を入力してください"
+                redirect_to user_path(params[:user_id])
+            end
         else
-            flash[:notice] = "全ての欄を入力してください"
-            render user_path(params[:id])
+            flash[:notice] = "無効な生徒IDです"
+            redirect_to user_path(params[:user_id])
         end
     end
 

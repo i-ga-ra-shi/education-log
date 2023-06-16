@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { sessions: 'users/sessions', registrations: 'users/registrations' }
     
-
   root to: "introductions#index"
   
   resources :subjects do
@@ -16,13 +15,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :students do
+  resources :students
+
+  resources :users, only: [:index, :show] do
     collection do
-      get 'certificate'
       post 'check'
     end
   end
-
   resources :attendances
   
 end

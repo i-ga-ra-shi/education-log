@@ -6,18 +6,14 @@
   </div>
 </div>
 
-<% if flash[:notice] %>
+<% if ["登録しました", "全ての欄を入力してください"].include?(flash[:notice]) %>
     <div class="bg-orange text-center fs-4 col-7 mx-auto">
         <span class="align-middle text-primary"><%= flash[:notice] %></span>
     </div>
 <% end %>
 
 <div class="row col-11 mx-auto justify-content-between">
-  <%= form_with(model: @attendance, local: true, class: "col-lg-4 col-8 mx-auto") do |f| %>
-    <div class="col-12 mb-3">
-        <%= f.label :user_id, "学校id" %>
-        <%= f.text_field :user_id, class: "form-control" %>
-    </div>
+  <%= form_with( url: attendances_path, mothod: :post, local: true, class: "col-lg-4 col-8 mx-auto") do |f| %>
     <div class="col-12 mb-3">
         <%= f.label :student_id, "生徒id" %>
         <%= f.text_field :student_id, class: "form-control" %>
@@ -46,6 +42,7 @@
         <%= f.label :reason, "理由" %>
         <%= f.text_field :reason, class: "form-control", style: "height: 100px" %>
     </div>
+    <%= f.hidden_field :user_id, value: params[:id] %>
     <div class="col-12 text-center mb-5">
         <%= f.submit "出欠を登録", class: "btn btn-primary" %>
     </div>

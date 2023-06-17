@@ -77,7 +77,18 @@
     <% end %>
   </div>
 </div>
-<div class="col-10 mx-auto">
-<%= line_chart Attendance.where(status: "欠席").group_by_day(:start_time).count %>
+<div class="col-9 mx-auto">
+  <%= line_chart [
+    { name: "欠席数", data: @attendances.where(status: "欠席").group_by_day(:start_time).count },
+    { name: "遅刻数", data: @attendances.where(status: "遅刻").group_by_day(:start_time).count }
+  ] %>
 </div>
-<%= pie_chart [["Work", 320], ["Play", 1492], ["aaa", 700], ["bbb", 1200]] %>
+<div class="col-9 mx-auto">
+  <% grade_1, grade_2, grade_3 = 0,0,0 %>
+  <% @attendances.each do |attendance| %>
+    <% grade_1 += 1 if attendance.student.grade == 1 %>
+    <% grade_2 += 1 if attendance.student.grade == 1 %>
+    <% grade_3 += 1 if attendance.student.grade == 1 %>
+  <% end %>
+  <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3]], title: "出席遅刻数", colors: ["#FFB6C1", "#87CEEB", "#90EE90"] %>
+</div>

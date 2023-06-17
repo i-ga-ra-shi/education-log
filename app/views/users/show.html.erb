@@ -64,7 +64,6 @@
         <% status_4 += 1 if attendance.status == "公欠" %>
         <% status_5 += 1 if attendance.status == "忌引き" %>
         <% status_6 += 1 if attendance.status == "その他" %>
-          <%# <%= link_to attendance.status, attendance %>
       <% end %>
         <div>
           <p class="status-number <%= 'status-true' if status_1 != 0 %>">欠：<%= status_1 %>件</p>

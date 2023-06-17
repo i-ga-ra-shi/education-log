@@ -1,11 +1,11 @@
 <!-- Button trigger modal -->
 <div class="d-flex justify-content-center">
-    <button type="button" class="btn btn-light text-secondary border-secondary mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" class="btn btn-light text-secondary border-secondary mx-auto" data-bs-toggle="modal" data-bs-target="#exampleModal<%=date.day%>">
         詳細
     </button>
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModal<%=date.day%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-daialog-scrollable">
         <div class="modal-content">
         <div class="modal-header">
@@ -14,13 +14,15 @@
         </div>
         <div class="modal-body">
           <% attendances.each do |attendance| %>
-            <div class="modal-attendance mb-3 border">
+            <div class="modal-attendance p-3 mb-3 border">
                 <p class="mb-1"><%= attendance.student.grade %>年
                 <%= attendance.student.class_number %>組
                 <%= attendance.student.number %>番
                 <%= attendance.student.name %></p>
-                <%= attendance.status%>の理由
-                <%= attendance.reason %>
+                <div class="d-flex">
+                    <div class="me-2"><%= attendance.status%>の理由 :</div>
+                    <div><%= attendance.reason %></div>
+                </div>
             </div>
           <% end %>
         </div>

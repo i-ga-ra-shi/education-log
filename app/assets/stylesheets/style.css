@@ -1,3 +1,20 @@
+/* ヘッダー */
+.main-header {
+    background-color: rgba(215, 245, 255, 0.95);
+    margin: 0 40px;
+}
+
+.header-logo {
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: 0.5px;
+
+}
+
+/* タイトル */
+.page-title {
+    letter-spacing: 5px;
+}
+
 /* トップページ */
 .carousel-inner {
     width: 100vw;
@@ -23,13 +40,6 @@
 
 .carousel-content {
     margin-bottom: 5rem;
-}
-
-.bg-image {
-    height: 100vw;
-    background-image: url(../images/society.jpeg);
-    background-position: center;
-    background-size: cover;
 }
 
 /* カード */
@@ -174,12 +184,12 @@ form .form-control {
     text-decoration: none;
     display: flex;
     align-items: center;
-    height: 50px;
+    height: auto;
 }
 
 .link-btn {
     color: rgb(60, 60, 60);
-    background-color: rgba(94, 173, 199, 0.2);
+    background-color: rgba(215, 245, 255, 1);
     width: 100px;
     height: 50px;
     line-height: 50px;
@@ -195,7 +205,7 @@ form .form-control {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(100, 100, 100, 0.6);
+    background-color: rgb(200, 200, 200);
     border-radius: 20px;
     margin-right: 50px;
     transition: ease 0.8s;
@@ -203,7 +213,7 @@ form .form-control {
 }
 
 .all-index:hover {
-    background-color: rgba(100, 100, 100, 0.9);
+    background-color: rgb(100, 100, 100);
     color: white;
 }
 
@@ -214,10 +224,38 @@ form .form-control {
 }
 
 .link-btn:hover {
-    color: rgb(90, 90, 90);
-    background-color: rgba(23, 125, 159, 0.6);
+    background-color: rgb(108, 163, 251);
     font-weight: bold;
 }
+
+.bg-container {
+    height: auto;
+    width: 100vw;
+    position: relative;
+    padding-top: 20px;
+    z-index: 0;
+  }
+  
+.bg-image {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1
+}
+  
+.bg-image::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    background-image: url("carousel1.png");
+    background-position: center;
+    background-size: cover;
+    filter: brightness(45%);
+}
+
 
 /* シンプルカレンダー */
 .custom-cell {

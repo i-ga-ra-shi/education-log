@@ -1,41 +1,42 @@
-<%= render("shared/header") %>
-<div class="d-flex justify-content-end">
-    <div class="guide text-center mt-3 fs-5">非公開の投稿です</div>
-</div>
-<div class="col-11 mx-auto mt-3 p-3 sort-btn">
-    <div class="col-1 all-index d-flex flex-column align-middle">
-        <i class="bi bi-reply-all text-white fs-3"></i>
-        <%= link_to('全て表示', subjects_path, class: "text-center text-decoration-none text-white all-text") %>
+<div class="bg-container pb-3">
+    <%= render("shared/header") %>
+    <div class="bg-image"></div>
+    <div class="d-flex justify-content-end">
+        <div class="guide text-center mt-3 fs-5">非公開の投稿です</div>
     </div>
-    <div class="buttons col-11">
-        <div class="col-12 sort-btn mb-2">
-            <i class="bi bi-sort-down fs-3 me-1"></i>
-            <%= link_to('新しい順', subjects_path(latest: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('古い順', subjects_path(old: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('教科順', subjects_path(subject_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('授業月順', subjects_path(month_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('学年順', subjects_path(grade_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+    <div class="col-11 mx-auto mt-3 p-3 sort-btn">
+        <div class="col-1 all-index d-flex flex-column align-middle">
+            <i class="bi bi-reply-all text-white fs-3"></i>
+            <%= link_to('全て表示', subjects_path, class: "text-center text-decoration-none text-white all-text") %>
         </div>
-        <div class="col-12 sort-btn">
-            <i class="bi bi-funnel fs-3 me-1"></i>
-            <%= link_to('国語',         subjects_path(subject_name: "2", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('社会',         subjects_path(subject_name: "3", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('数学',         subjects_path(subject_name: "4", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('理科',         subjects_path(subject_name: "5", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('英語',         subjects_path(subject_name: "6", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('その他の教科',   subjects_path(subject_name: "7", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
-            <%= link_to('特別活動',      subjects_path(subject_name: "8", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+        <div class="buttons col-11">
+            <div class="col-12 sort-btn mb-2">
+                <i class="bi bi-sort-down fs-3 me-1 text-white"></i>
+                <%= link_to('新しい順', subjects_path(latest: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('古い順', subjects_path(old: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('教科順', subjects_path(subject_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('授業月順', subjects_path(month_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('学年順', subjects_path(grade_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+            </div>
+            <div class="col-12 sort-btn">
+                <i class="bi bi-funnel fs-3 me-1 text-white"></i>
+                <%= link_to('国語',         subjects_path(subject_name: "2", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('社会',         subjects_path(subject_name: "3", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('数学',         subjects_path(subject_name: "4", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('理科',         subjects_path(subject_name: "5", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('英語',         subjects_path(subject_name: "6", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('その他の教科',   subjects_path(subject_name: "7", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+                <%= link_to('特別活動',      subjects_path(subject_name: "8", latest: params[:latest], old: params[:old], subject_id: params[:subject_id], month_id: params[:month_id], grade_id: params[:grade_id]), class: "text-center text-decoration-none link-btn") %>
+            </div>
         </div>
     </div>
-</div>
 
 
-<% if ["投稿内容を更新しました。","投稿を削除しました。"].include?(flash[:notice]) %>
-    <div class="bg-orange text-center fs-4 col-9 py-1 mx-auto mt-4">
-        <span class="align-middle text-primary"><%= flash[:notice] %></span>
-    </div>
-<% end %>
+    <% if ["投稿内容を更新しました。","投稿を削除しました。"].include?(flash[:notice]) %>
+        <div class="bg-orange text-center fs-4 col-9 py-1 mx-auto mt-3">
+            <span class="align-middle text-primary"><%= flash[:notice] %></span>
+        </div>
+    <% end %>
 
-<div class="bg-image">
     <%= render("shared/contents") %>
 </div>

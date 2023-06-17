@@ -41,7 +41,7 @@ class AttendancesController < ApplicationController
     private
 
     def attendance_params
-        params.permit(:name, :status, :reason, :start_time, :student_id).merge(user_id: params[:user_id])
+        params.permit(:status, :reason, :start_time, :student_id).merge(user_id: params[:user_id])
     end
 
 end

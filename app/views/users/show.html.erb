@@ -1,10 +1,13 @@
-<%= render("shared/header") %>
+<div class="bg-container">
+  <%= render("shared/header") %>
+  <div class="bg-image"></div>
 
-<div class="container py-5">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <div class="text-black-50 fs-1 text-center fw-bold">出欠登録ページ</div>
-    </div>  
+  <div class="container py-3 mb-4">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <div class="p-2 text-white fs-1 text-center fw-bold page-title">出欠登録</div>
+      </div>  
+    </div>
   </div>
 </div>
 
@@ -16,14 +19,12 @@
 
 <div class="row col-11 mx-auto justify-content-between">
   <%= form_with( url: attendances_path, mothod: :post, local: true, class: "col-lg-4 col-8 mx-auto") do |f| %>
+    <%= f.hidden_field :user_id, value: params[:id] %>
+    
     <div class="col-12 mb-3">
         <%= f.label :student_id, "生徒id" %>
         <%= f.text_field :student_id, class: "form-control" %>
-    </div>
-    <div class="col-12 mb-3">
-        <%= f.label :name, "氏名" %>
-        <%= f.text_field :name, class: "form-control" %>
-    </div>    
+    </div> 
     <div class="col-12 mb-3">
       <%= f.label :status, "出欠席を登録" %>
       <select name="status" class="form-select form-control" aria-label="Default select example">
@@ -44,7 +45,6 @@
         <%= f.label :reason, "理由" %>
         <%= f.text_field :reason, class: "form-control", style: "height: 100px" %>
     </div>
-    <%= f.hidden_field :user_id, value: params[:id] %>
     <div class="col-12 text-center mb-5">
         <%= f.submit "出欠を登録", class: "btn btn-primary col-6" %>
     </div>
@@ -81,7 +81,7 @@
   <%= line_chart [
     { name: "欠席数", data: @attendances.where(status: "欠席").group_by_day(:start_time).count },
     { name: "遅刻数", data: @attendances.where(status: "遅刻").group_by_day(:start_time).count }
-  ] %>
+  ] , title: "欠席数・遅刻数の推移" %>
 </div>
 <div class="col-9 mx-auto">
   <% grade_1, grade_2, grade_3 = 0,0,0 %>
@@ -90,5 +90,5 @@
     <% grade_2 += 1 if attendance.student.grade == 1 %>
     <% grade_3 += 1 if attendance.student.grade == 1 %>
   <% end %>
-  <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3]], title: "出席遅刻数", colors: ["#FFB6C1", "#87CEEB", "#90EE90"] %>
+  <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3]], title: "学年別割合", colors: ["#FFB6C1", "#87CEEB", "#90EE90"] %>
 </div>

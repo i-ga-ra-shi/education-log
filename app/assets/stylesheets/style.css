@@ -225,7 +225,7 @@ form .form-control {
 }
 
 .table-head {
-    background-color: antiquewhite;
+    background-color: beige;
 }
 
 .status-number {
@@ -234,4 +234,9 @@ form .form-control {
 
 .status-true {
     color: red;
+    background-color: rgba(253, 173, 173, 0.3);
+}
+
+.date-days {
+    border-bottom: 1px solid lightgray;
 }

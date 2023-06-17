@@ -1,12 +1,25 @@
 <div class="simple-calendar">
-  <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: '前の週'), calendar.url_for_previous_view %>
-    <% if calendar.number_of_weeks == 1 %>
-      <span class="calendar-title mx-2 fs-4"><%= start_date.month %>月</span>
-    <% else %>
-      <span class="calendar-title mx-2 fs-4"><%= start_date.month %>月</span>
-    <% end %>
-    <%= link_to t('simple_calendar.next', default: '次の週'), calendar.url_for_next_view %>
+
+  <div class="calendar-heading d-flex justify-content-between">
+    <div>
+      <%=link_to calendar.url_for_next_view do%>
+        <i class="bi bi-chevron-double-left me-2 fs-5"></i>
+      <% end %>
+      <%= link_to t('simple_calendar.previous', default: '前の週'), calendar.url_for_previous_view, class: "text-decoration-none fs-5" %>
+    </div>
+    <div>
+      <% if calendar.number_of_weeks == 1 %>
+        <span class="calendar-title mx-2 fs-4"><%= start_date.month %>月</span>
+      <% else %>
+        <span class="calendar-title mx-2 fs-4"><%= start_date.month %>月</span>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to t('simple_calendar.next', default: '次の週'), calendar.url_for_next_view, class: "text-decoration-none fs-5" %>
+      <%=link_to calendar.url_for_next_view do%>
+        <i class="bi bi-chevron-double-right ms-2 fs-5"></i>
+      <% end %>
+    </div>
   </div>
 
   <table class="table mt-2">

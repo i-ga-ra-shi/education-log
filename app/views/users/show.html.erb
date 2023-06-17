@@ -52,9 +52,10 @@
   
   <div class="col-lg-8 col-12 ps-lg-5">
     <%= week_calendar events: @attendances do |date, attendances| %>
-      <div class="text-center border-bottom p-1 mb-3">
+      <div class="text-center p-1 mb-3 date-days">
         <%= date.day %>
       </div>
+      <%# Statusの数値を更新 %>
       <% status_1, status_2, status_3, status_4, status_5, status_6 = 0, 0, 0, 0, 0, 0 %>
       <% attendances.each do |attendance| %>
         <% status_1 += 1 if attendance.status == "欠席" %>
@@ -72,10 +73,9 @@
           <p class="status-number <%= 'status-true' if status_4 != 0 %>">公：<%= status_4 %>件</p>
           <p class="status-number <%= 'status-true' if status_5 != 0 %>">忌：<%= status_5 %>件</p>
           <p class="status-number <%= 'status-true' if status_6 != 0 %>">他：<%= status_6 %>件</p>
+          <%= render(partial: "shared/modal", locals: {attendances: attendances, date: date}) %>
         </div>
     <% end %>
-
-
     <%= pie_chart [["Work", 320], ["Play", 1492], ["aaa", 700], ["bbb", 1200]] %>
   </div>
 </div>

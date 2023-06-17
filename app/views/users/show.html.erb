@@ -75,6 +75,9 @@
           <%= render(partial: "shared/modal", locals: {attendances: attendances, date: date}) %>
         </div>
     <% end %>
-    <%= pie_chart [["Work", 320], ["Play", 1492], ["aaa", 700], ["bbb", 1200]] %>
   </div>
 </div>
+<div class="col-10 mx-auto">
+<%= line_chart Attendance.where(status: "欠席").group_by_day(:start_time).count %>
+</div>
+<%= pie_chart [["Work", 320], ["Play", 1492], ["aaa", 700], ["bbb", 1200]] %>

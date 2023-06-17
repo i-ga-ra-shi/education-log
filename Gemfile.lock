@@ -99,6 +99,8 @@ GEM
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
+    groupdate (6.2.1)
+      activesupport (>= 5.2)
     i18n (1.13.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -280,6 +282,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   chartkick
   devise
+  groupdate
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
   jquery-rails

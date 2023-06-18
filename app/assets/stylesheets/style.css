@@ -7,7 +7,11 @@
 .header-logo {
     font-family: 'Roboto Slab', serif;
     letter-spacing: 0.5px;
+}
 
+.dropdown-menu {
+    box-shadow: 3px 3px 10px 7px rgba(0,0,0,0.3);
+    border: 2px solid darkgray;
 }
 
 /* タイトル */

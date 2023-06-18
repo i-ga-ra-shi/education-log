@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   resources :students
 
   resources :users, only: [:index, :show] do
+    resources :attendances
     collection do
       post 'check'
     end
   end
-  resources :attendances
   
 end

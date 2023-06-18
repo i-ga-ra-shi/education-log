@@ -12,13 +12,13 @@
     </div>
   </div>
 <% else %>
-  <div class="bg-container mb-5">
-    <%= render("shared/header") %>
-  </div>
-
-  <div class="row justify-content-center mb-3">
-    <div class="col-8">
-      <div class="p-2 text-secondary fs-2 text-center fw-bold page-title">出欠登録</div>
+  <div class="header2 mb-4">
+    <%= image_tag("carousel1.png") %>
+    <div class="header2-absolute">
+      <%= render("shared/header") %>
+    </div>
+    <div class="header2-title">
+      <div class="p-2 text-white fs-1 text-center fw-bold page-title">出欠登録</div>
     </div>  
   </div>
 <% end %>

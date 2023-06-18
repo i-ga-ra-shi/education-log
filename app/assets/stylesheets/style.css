@@ -14,6 +14,35 @@
     border: 2px solid darkgray;
 }
 
+/* ヘッダー2 */
+.header2 {
+    height: auto;
+    position: relative;
+}
+
+.header2 img {
+    filter: brightness(40%);
+    width: 100vw;
+    height: 200px;
+    object-fit: cover;
+}
+
+.header2-absolute {
+    width: 100%;
+    padding-top: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.header2-title {
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 0;
+}
+
+
 /* タイトル */
 .page-title {
     letter-spacing: 5px;

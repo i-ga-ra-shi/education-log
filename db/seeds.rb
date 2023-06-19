@@ -28,7 +28,7 @@ contents = [
 ]
 user_ids = [1, 2, 3]
 
-30.times do
+50.times do
   subject_id = subject_ids.sample
   Subject.create(
     subject_id: subject_id,
@@ -50,5 +50,17 @@ end
     number: rand(30),
     name: ["田中","鈴木","山本","高橋","佐藤","山口","青木","山田","斉藤","小川"].sample,
     user_id: user_ids.sample
+  )
+end
+
+# Attendancesデータの作成
+require 'date'
+50.times do
+  Attendance.create(
+    status: ["欠席", "遅刻", "早退", "公欠", "忌引き", "その他"].sample,
+    reason: ["行きたくない", "何となく", "遊びに行く", "眠い", "だるい"].sample,
+    start_time: (Date.today..Date.today + 6).to_a.sample,
+    user_id: 1,
+    student_id: Student.where(user_id: 1).ids.sample
   )
 end

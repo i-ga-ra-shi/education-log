@@ -1,6 +1,8 @@
 class Public < ApplicationRecord
-    belongs_to :user
+    belongs_to :user, dependent: :destroy
     belongs_to :subject, dependent: :destroy
+
+    validates :subject_id, uniqueness: true
 
     scope :latest, -> {order(created_at: :desc)}
     scope :old, -> {order(created_at: :asc)}

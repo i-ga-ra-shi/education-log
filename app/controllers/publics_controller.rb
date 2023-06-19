@@ -40,7 +40,7 @@ class PublicsController < ApplicationController
     end
 
     def search
-        keyword_subjects = Subject.search(params[:keyword])
+        keyword_subjects = Subject.where(id: Public.pluck(:subject_id)).search(params[:keyword])
         if params[:latest]
             @subjects = keyword_subjects.latest
         elsif params[:old]

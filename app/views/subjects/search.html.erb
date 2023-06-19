@@ -1,11 +1,16 @@
-<%= render("shared/header") %>
+<div class="bg-container pb-3">
+    <%= render("shared/header") %>
+    <div class="bg-image"></div>
 
-<div class="list-group list-group-horizontal col-9 mx-auto mt-5 p-3">
-    <%= link_to('新しい順', search_subjects_path(latest: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
-    <%= link_to('古い順', search_subjects_path(old: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
-    <%= link_to('教科順', search_subjects_path(subject_id: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
-    <%= link_to('授業月順', search_subjects_path(month_id: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
-    <%= link_to('学年順', search_subjects_path(grade_id: "true", keyword: params[:keyword]), class: "list-group-item list-group-item-action text-center") %>
+    <div class="buttons col-10 mx-auto mt-5 ">
+        <div class="col-12 sort-btn mb-2 justify-content-center">
+            <i class="bi bi-sort-down fs-3 me-1 text-white"></i>
+            <%= link_to('新しい順', search_subjects_path(latest: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+            <%= link_to('古い順', search_subjects_path(old: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+            <%= link_to('教科順', search_subjects_path(subject_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+            <%= link_to('授業月順', search_subjects_path(month_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+            <%= link_to('学年順', search_subjects_path(grade_id: "true", subject_name: params[:subject_name]), class: "text-center text-decoration-none link-btn") %>
+        </div>
+    </div>
+    <%= render("shared/contents") %>
 </div>
-
-<%= render("shared/contents") %>

@@ -91,7 +91,7 @@
 </div>
 
 <% if user_signed_in?%>
-  <div class="row chartkick">
+  <div class="row col-11 mx-auto chartkick mb-3">
     <div class="col-xl-6 col-9 mx-auto">
       <%= line_chart [
         { name: "欠席数", data: @attendances.where(status: "欠席").group_by_day(:start_time).count },

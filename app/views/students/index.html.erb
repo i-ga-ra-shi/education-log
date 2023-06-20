@@ -17,18 +17,20 @@
     </div>
 <% end %>
 
-<div class="table-wrapper">
+<div class="table-wrapper" id="sort_table">
     <div class="links"><%=link_to("新規登録", new_student_path, class: "text-decoration-none") %></div>
     <table class="table table-striped  table-bordered text-center">
         <tr class="bg-dark-gray">
-            <th class="fw-bold text-white">学年</th>
-            <th class="fw-bold text-white">クラス</th>
-            <th class="fw-bold text-white">番号</th>
-            <th class="fw-bold text-white">氏名</th>
-            <th class="fw-bold text-white">アクション</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>ID</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>学年</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>クラス</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>番号</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>氏名</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>アクション</th>
         </tr>
         <% @students.each do |student| %>
             <tr>
+                <td><%= student.id %></td>
                 <td><%= student.grade %></td>
                 <td><%= student.class_number %></td>
                 <td><%= student.number %></td>

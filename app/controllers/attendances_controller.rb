@@ -1,5 +1,9 @@
 class AttendancesController < ApplicationController
 
+    def index
+        @attendances = Attendance.where(user_id: params[:user_id])
+    end
+
     def show
         @attendance = Attendance.find(params[:id])
     end

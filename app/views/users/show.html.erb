@@ -30,6 +30,7 @@
 <% end %>
 
 <div class="row col-11 mx-auto justify-content-between">
+  <%# フォーム %>
   <%= form_with( url: user_attendances_path(params[:id]), mothod: :post, local: true, class: "col-lg-4 col-8 mx-auto") do |f| %>
     <%= f.hidden_field :user_id, value: params[:id] %>
     
@@ -62,6 +63,7 @@
     </div>
   <% end %>
   
+  <%# カレンダー %>
   <div class="col-lg-8 col-12 ps-lg-5">
     <%= week_calendar events: @attendances do |date, attendances| %>
       <div class="text-center p-1 mb-3 date-days">
@@ -87,6 +89,7 @@
           <%= render(partial: "shared/modal", locals: {attendances: attendances, date: date}) if user_signed_in? %>
         </div>
     <% end %>
+        <div class="text-end"><%= link_to("出欠一覧", user_attendances_path(current_user.id), class: "text-decoration-none") %></div>
   </div>
 </div>
 
@@ -99,13 +102,17 @@
       ] , title: "欠席数・遅刻数の推移" %>
     </div>
     <div class="col-xl-6 col-9 mx-auto">
-      <% grade_1, grade_2, grade_3 = 0,0,0 %>
+      <% grade_1, grade_2, grade_3, grade_4, grade_5, grade_6 = 0, 0, 0, 0, 0, 0 %>
       <% @attendances.each do |attendance| %>
         <% grade_1 += 1 if attendance.student.grade == 1 %>
-        <% grade_2 += 1 if attendance.student.grade == 1 %>
-        <% grade_3 += 1 if attendance.student.grade == 1 %>
+        <% grade_2 += 1 if attendance.student.grade == 2 %>
+        <% grade_3 += 1 if attendance.student.grade == 3 %>
+        <% grade_4 += 1 if attendance.student.grade == 4 %>
+        <% grade_5 += 1 if attendance.student.grade == 5 %>
+        <% grade_6 += 1 if attendance.student.grade == 6 %>
       <% end %>
-      <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3]], title: "学年別割合", colors: ["#FFB6C1", "#87CEEB", "#90EE90"] %>
+      <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3], ["4年生", grade_4], ["5年生", grade_5], ["6年生", grade_6]],
+       title: "学年別割合", colors: ["#FFB6C1", "#87CEEB", "#90EE90", "#FABC05", "#F0F0F0", "#3366CC"] %>
     </div>
   </div>
 <% end %>

@@ -5,67 +5,35 @@
   <div class="container py-3 mb-4">
     <div class="row justify-content-center">
       <div class="col-8">
-        <div class="p-2 text-white fs-1 text-center fw-bold page-title">出欠登録</div>
+        <div class="p-2 text-white fs-1 text-center fw-bold page-title">出欠一覧</div>
       </div>  
     </div>
   </div>
 </div>
 
-<% if flash[:notice] %>
-    <div class="bg-orange text-center fs-4 col-7 mx-auto">
-        <span class="align-middle text-primary"><%= flash[:notice] %></span>
-    </div>
-<% end %>
-
-<div class="row col-11 mx-auto justify-content-between">
-  <%= form_with(model: @attendance, local: true, class: "col-lg-4 col-8 mx-auto") do |f| %>
-    <div class="col-12 mb-3">
-        <%= f.label :user_id, "学校id" %>
-        <%= f.text_field :user_id, class: "form-control" %>
-    </div>
-    <div class="col-12 mb-3">
-        <%= f.label :student_id, "生徒id" %>
-        <%= f.text_field :student_id, class: "form-control" %>
-    </div>
-    <div class="col-12 mb-3">
-        <%= f.label :name, "氏名" %>
-        <%= f.text_field :name, class: "form-control" %>
-    </div>    
-    <div class="col-12 mb-3">
-      <%= f.label :status, "出欠席を登録" %>
-      <select name="status" class="form-select form-control" aria-label="Default select example">
-          <option selected>選択してください</option>
-          <option value="欠席">欠席</option>
-          <option value="遅刻">遅刻</option>
-          <option value="早退">早退</option>
-          <option value="公欠">公欠</option>
-          <option value="忌引き">忌引き</option>
-          <option value="その他">その他</option>
-      </select>
-    </div>
-    <div class="col-12 mb-3">
-        <%= f.label :start_time, "日付" %>
-        <%= f.date_field :start_time, class: "form-control" %>
-    </div>
-    <div class="col-12 mb-3">
-        <%= f.label :reason, "理由" %>
-        <%= f.text_field :reason, class: "form-control", style: "height: 100px" %>
-    </div>
-    <div class="col-12 text-center mb-5">
-        <%= f.submit "出欠を登録", class: "btn btn-primary" %>
-    </div>
-  <% end %>
-  
-  <div class="col-lg-8 col-12 ps-lg-5">
-    <%= week_calendar events: @attendances do |date, attendances| %>
-      <%= date.day %>
-
-      <% attendances.each do |attendance| %>
-        <div>
-          <%= link_to attendance.status, attendance %>
-        </div>
-      <% end %>
-    <% end %>
-    <%= link_to("ホーム", root_path, class: "btn btn-primary mt-5 col-4") %>
-  </div>
+<div class="table-wrapper" id="sort_table">
+    <div class="links"><%=link_to("出欠登録ページ", user_path(current_user.id), class: "text-decoration-none") %></div>
+    <table class="table table-striped  table-bordered text-center">
+        <tr class="bg-dark-gray">
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>学年</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>クラス</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>番号</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>氏名</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>出欠席</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>日付</th>
+            <th class="fw-bold text-white"><i class="bi bi-sort-down fs-5 me-1 text-white"></i>理由</th>
+        </tr>
+        <% @attendances.each do |attendance| %>
+          <% wdays = ["日", "月", "火", "水", "木", "金", "土"] %>
+            <tr>
+                <td><%= attendance.student.grade %></td>
+                <td><%= attendance.student.class_number %></td>
+                <td><%= attendance.student.number %></td>
+                <td><%= attendance.student.name %></td>
+                <td><%= attendance.status %></td>
+                <td><%= attendance.start_time.month %>月<%= attendance.start_time.day %>日（<%= wdays[attendance.start_time.wday] %>）</td>
+                <td><%= attendance.reason %></td>
+            </tr>
+        <% end %>
+    </table>
 </div>

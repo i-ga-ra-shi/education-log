@@ -314,3 +314,13 @@ form .form-control {
 .date-days {
     border-bottom: 1px solid lightgray;
 }
+
+
+/* 出欠一覧ページ */
+#sort_table th {
+	cursor:pointer;
+}
+
+#sort_table th:hover {
+	background-color: rgb(176, 182, 143);
+}

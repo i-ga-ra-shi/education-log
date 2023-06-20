@@ -1,7 +1,7 @@
 class AttendancesController < ApplicationController
 
     def index
-        @attendances = Attendance.where(user_id: params[:user_id])
+        @attendances = Attendance.where(user_id: params[:user_id]).page(params[:page]).per(50)
     end
 
     def show

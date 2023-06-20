@@ -319,6 +319,7 @@ form .form-control {
 /* 出欠一覧ページ */
 #sort_table th {
 	cursor:pointer;
+    transition: ease 0.8s;
 }
 
 #sort_table th:hover {

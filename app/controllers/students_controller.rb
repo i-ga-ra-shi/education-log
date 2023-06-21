@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
     
     def index
-        @students = Student.where(user_id: current_user.id)
+        @students = Student.where(user_id: current_user.id).page(params[:page]).per(50)
     end
 
     def show

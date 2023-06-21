@@ -36,6 +36,8 @@
             </tr>
         <% end %>
     </table>
-    <%= paginate @attendances, window: 2 %>
+    <div class="mb-5">
+      <%= paginate @attendances, window: 2 %>
+    </div>
     
 </div>

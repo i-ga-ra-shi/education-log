@@ -325,3 +325,11 @@ form .form-control {
 #sort_table th:hover {
 	background-color: rgb(176, 182, 143);
 }
+
+.kaminari-first {
+    margin-right: 10%;
+}
+
+.kaminari-last {
+    margin-left: 10%;
+}

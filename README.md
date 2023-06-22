@@ -53,6 +53,24 @@ EducationLog
 - 授業記録の新規投稿ができる
 [![Image from Gyazo](https://i.gyazo.com/0a5c541cfdc26618689e8f28fb07eb3b.gif)](https://gyazo.com/0a5c541cfdc26618689e8f28fb07eb3b)
 
+- 授業記録の詳細が表示される
+[![Image from Gyazo](https://i.gyazo.com/453a332af5267fdcfd79307535ef128c.gif)](https://gyazo.com/453a332af5267fdcfd79307535ef128c)
+
+- 公開、非公開を切り替えられる
+[![Image from Gyazo](https://i.gyazo.com/da6f8b0f8ec4de06b51de637968411f5.gif)](https://gyazo.com/da6f8b0f8ec4de06b51de637968411f5)
+
+
+- 検索ができる
+
+- Excelファイルをアップロードして生徒データ登録できる
+
+
+- カレンダーに出欠情報が登録され、グラフが表示されている
+
+- カレンダーに出欠情報を登録できる
+
+
+
 # 実装予定の機能
 - 学校アカウント、教員用アカウント、生徒用アカウントを分ける
 - 投稿に対してAND検索・OR検索、タグ検索などの柔軟な検索方法追加する

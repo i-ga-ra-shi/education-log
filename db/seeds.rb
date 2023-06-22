@@ -28,7 +28,7 @@ contents = [
 ]
 user_ids = [1, 2, 3]
 
-50.times do
+20.times do
   subject_id = subject_ids.sample
   Subject.create(
     subject_id: subject_id,
@@ -43,7 +43,7 @@ user_ids = [1, 2, 3]
 end
 
 # studentsデータの作成
-50.times do
+0.times do
   Student.create(
     grade: [1, 2, 3, 4, 5, 6].sample,
     class_number: [1, 2, 3, 4, 5, 6].sample,
@@ -55,7 +55,7 @@ end
 
 # Attendancesデータの作成
 require 'date'
-50.times do
+10.times do
   Attendance.create(
     status: ["欠席", "遅刻", "早退", "公欠", "忌引き", "その他"].sample,
     reason: ["行きたくない", "何となく", "遊びに行く", "眠い", "だるい"].sample,

@@ -47,7 +47,7 @@ EducationLog
 
 
 # 実装した機能についての画像やGIFおよびその説明
-
+- [![授業記録の一覧が表示されている](https://i.gyazo.com/7a2be138151551e802403f2b3712ec3c.gif)](https://gyazo.com/7a2be138151551e802403f2b3712ec3c)
 
 
 

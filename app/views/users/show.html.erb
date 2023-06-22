@@ -89,7 +89,9 @@
           <%= render(partial: "shared/modal", locals: {attendances: attendances, date: date}) if user_signed_in? %>
         </div>
     <% end %>
+    <% if user_signed_in? %>
         <div class="text-end"><%= link_to("出欠一覧", user_attendances_path(current_user.id), class: "text-decoration-none") %></div>
+    <% end %>
   </div>
 </div>
 
@@ -114,5 +116,6 @@
       <%= pie_chart [["1年生", grade_1], ["2年生", grade_2], ["3年生", grade_3], ["4年生", grade_4], ["5年生", grade_5], ["6年生", grade_6]],
        title: "学年別割合", colors: ["#FFB6C1", "#87CEEB", "#90EE90", "#FABC05", "#F0F0F0", "#3366CC"] %>
     </div>
+      <%= column_chart Attendance.where(user_id: current_user.id).group_by_day_of_week(:start_time).count %>
   </div>
 <% end %>

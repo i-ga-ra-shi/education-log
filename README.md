@@ -47,9 +47,11 @@ EducationLog
 
 
 # 実装した機能についての画像やGIFおよびその説明
-- [![授業記録の一覧が表示されている](https://i.gyazo.com/7a2be138151551e802403f2b3712ec3c.gif)](https://gyazo.com/7a2be138151551e802403f2b3712ec3c)
+- 授業記録の一覧が表示されている
+ [![授業記録の一覧が表示されている](https://i.gyazo.com/7a2be138151551e802403f2b3712ec3c.gif)](https://gyazo.com/7a2be138151551e802403f2b3712ec3c)
 
-
+- 授業記録の新規投稿ができる
+[![Image from Gyazo](https://i.gyazo.com/0a5c541cfdc26618689e8f28fb07eb3b.gif)](https://gyazo.com/0a5c541cfdc26618689e8f28fb07eb3b)
 
 # 実装予定の機能
 - 学校アカウント、教員用アカウント、生徒用アカウントを分ける

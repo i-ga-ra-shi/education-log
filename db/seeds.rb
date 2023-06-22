@@ -28,7 +28,7 @@ contents = [
 ]
 user_ids = [1, 2, 3]
 
-20.times do
+0.times do
   subject_id = subject_ids.sample
   Subject.create(
     subject_id: subject_id,

@@ -14,7 +14,7 @@ function preview() {
                 `;
 
                 // ボタンを入れ替える
-                checked.parentNode.replaceChildren(newButtonUnchecked, checked);
+                checked.parentNode.replaceChild(newButtonUnchecked, checked);
                 checked.remove();
 
                 // ボタンをクリックしてリクエストを送信
@@ -41,7 +41,7 @@ function preview() {
                 `;
 
                 // ボタンを入れ替える
-                unchecked.parentNode.replaceChildren(newButtonChecked, unchecked);
+                unchecked.parentNode.replaceChild(newButtonChecked, unchecked);
                 unchecked.remove();
 
                 // ボタンをクリックしてリクエストを送信

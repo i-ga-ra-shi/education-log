@@ -55,7 +55,7 @@ end
 
 # Attendancesデータの作成
 require 'date'
-30.times do
+0.times do
   Attendance.create(
     status: ["欠席", "遅刻", "早退", "公欠", "忌引き", "その他"].sample,
     reason: ["行きたくない", "何となく", "遊びに行く", "眠い", "だるい"].sample,
